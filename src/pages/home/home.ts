@@ -1,23 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
-})
-export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-
+ })
+ export class HomePage {
+  constructor(public navCtrl: NavController) {}
+  autorizaracceso(){
+   this.navCtrl.push(AutorizaraccesoPage);
   }
   
-    public event = {
-      month: '1990-02-19',
-      hora: '07:43',
-      timeEnds: '1990-02-20'
-    }
-  
-  
-  
-
-}
+ }

@@ -54,15 +54,14 @@ page-dashboard {
     display: block;
 }
 
-  .contenedor-trash{
-    position:relative;
-}
+ 
+   
+
 .icon-trash{
 position:absolute;
 bottom:2px;
 right:3px;
 font-size: 170%;
-
 }
 
 .fecha{ 
@@ -96,4 +95,11 @@ font-size: 170%;
    margin-right: 25px;
    margin-bottom: 5px;
    margin-bottom: 10px; 
+}
+.contenedor-trash{
+    position:relative;
+    margin-left: 25px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-bottom: 10px; 
 }
