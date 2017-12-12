@@ -10,5 +10,14 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
+  
+    public event = {
+      month: '1990-02-19',
+      hora: '07:43',
+      timeEnds: '1990-02-20'
+    }
+  
+  
+  
 
 }
