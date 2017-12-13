@@ -7,12 +7,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
+import { TeetimePage } from '../pages/teetime/teetime';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AutorizaraccesoPage
+    AutorizaraccesoPage,
+    TeetimePage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
   entryComponents: [
     MyApp,
     HomePage,
-    AutorizaraccesoPage
+    AutorizaraccesoPage,
+    TeetimePage
   ],
   providers: [
     StatusBar,

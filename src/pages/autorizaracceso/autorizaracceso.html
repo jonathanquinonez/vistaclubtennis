@@ -14,7 +14,8 @@
 
 
 <ion-content padding>
-
+    <div class = "row responsive-sm" >
+     
     <h1 class="titulo">Autorizar Acceso de Invitados</h1>
 
       <div class="contenedor-superior"> 
@@ -33,5 +34,41 @@
     <div>
         <ion-icon name="add-circle" class="icon-add"></ion-icon>
         <u class="agregar">Agregar Invitado</u>
+        <br>
+    </div>
+
+    <div class="contenedor-inferior"> 
+        <ion-list>  
+            <ion-item>
+                <ion-icon name="md-calendar" item-right primary></ion-icon>
+                <ion-input type="date" placeholder="Fecha de Acceso"></ion-input>
+                <br>
+              </ion-item>
+            
+                
+              
+          <br>
+            <ion-item>
+              <ion-input type="date" placeholder="Hora de Entrada"></ion-input>
+              <ion-icon name="md-calendar" item-right primary></ion-icon>
+              <br>
+            </ion-item>
+          
+          </ion-list>
+          </div>
+          <br>
+<div class="div-boton">
+  <button class="botont center22" (click)="teetime()">Autorizar</button>
+</div>
+
+<!--<div ng-repeat="input in inputs">
+    <input type="text"
+           ng-model="input.value" />
+    <button ng-if="$index == inputs.length - 1" 
+            ng-click="addInput()">+</button>
+    <button ng-if="$index != inputs.length - 1"
+            ng-click="removeInput($index)">-</button>
+</div>-->
+          
     </div>
 </ion-content>
