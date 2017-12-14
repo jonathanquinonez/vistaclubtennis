@@ -1,11 +1,11 @@
-page-menu  {
+page-misinvitaciones{
     ion-slides{ max-height:23%;}
    
     /*.toolbar-background{ background:transparent; border-style:none;}
       .toolbar::after,.header-md::after{ background-image:none;}*/
       .footer-background{ background-color:#2c3e50 !important ;}
 }
- .contenedor-principal{
+ .contenedor-principalt{
         //background-color:color($colors,primary);
           background-image:url('../assets/images/tennis/fondo2.jpg');  -webkit-background-size: cover; 
       -moz-background-size: cover;
@@ -53,14 +53,8 @@ page-menu  {
     margin-right: auto;
     display: block;
 }
-ion-card{
-    opacity: 0.6;
-    margin-left: 25px;
-    margin-right: 25px;
- }     
- .opacidad{
-    opacity: 0.7;
- }
+
+ 
    
 
 .icon-trash{

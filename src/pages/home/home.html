@@ -1,71 +1,39 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
+
+
   
-  
-<h1 class="titulo" >Mis Invitaciones</h1>
+    <ion-slides pager="true">
+        <!-- Se uso una clase para poner la imagen de fono -->
+         <ion-slide  style="width: 100%; " class="fondo">
+           <!--- se generaron espacios en area de trabajo para posicionar los elmentos-->
+       
+           <!-- imagen  logotipo Club Tennis App-->
+             
+             
+       
+         </ion-slide>
+        <!-- termina el primer slider-->
+        <!--- inicia el segundo slider -->
+         <ion-slide class="fondo2">
+           
+         </ion-slide>
+       
+          <ion-slide class="fondo3">
+       
+           
+           
+       
+         </ion-slide>
+       
+          <ion-slide class="fondo4">
+             <div style="height:400px;"></div>
+       <button ion-button block round class="botont right" (click)="login()" style="font-family: MyriadProBold; width:40%; " padding-left   >Comenzar  Ahora</button>
+       
+       
+         </ion-slide>
+        <!-- termina el segundo slider -->
+         
+        
+       </ion-slides>
+       <!-- termina el slider --> 
 
-
-    <ion-grid>
-    <ion-row>
-      <ion-col col-12>
-          <div class = "cuerpo-div col-12 col-sm"   no-padding style="border: 1px solid black;">
-              
-             <div class="titulo-div">
-               <div class="fecha">
-                   <p>fecha</p>
-               </div>
-               <div class="hora">
-                   <p>hora</p>
-               </div>  
-             </div>    
-           
-             <div >
-               <div class="nombres col-12 col-sm" style="text-align: center; font-size: 12px;">
-                 <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
-               </div>
-           
-                 <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-                     <ion-icon name="trash" class="icon-trash"></ion-icon>
-                   </div>
-                  
-                 </div>
-             </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col col-12><div class = "cuerpo-div col-12 col-sm"   no-padding style="border: 1px solid black;">
-              
-             <div class="titulo-div">
-               <div class="fecha">
-                   <p>fecha</p>
-               </div>
-               <div class="hora">
-                   <p>hora</p>
-               </div>  
-             </div>    
-           
-             <div >
-               <div class="nombres col-12 col-sm" style="text-align: center; font-size: 12px;">
-                 <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
-               </div>
-           
-                 <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-                     <ion-icon name="trash" class="icon-trash"></ion-icon>
-                   </div>
-                  
-                 </div>
-             </div></ion-col>
-      </ion-row>
-    <ion-row>
-      <ion-col col-12><button class="botont center22 col-12 col-sm" (click)="autorizaracceso()">Nueva invitación</button></ion-col>
-    </ion-row>
-  </ion-grid>
-
-</ion-content>

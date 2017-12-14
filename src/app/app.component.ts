@@ -9,6 +9,7 @@ import { TeetimePage } from '../pages/teetime/teetime';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MenuPage } from '../pages/menu/menu';
+import { UserloginPage } from '../pages/userlogin/userlogin';
 
 
 @Component({

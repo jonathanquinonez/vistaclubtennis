@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
+import { UserloginPage } from '../userlogin/userlogin';
 
 @Component({
   selector: 'page-home',
@@ -8,8 +8,8 @@ import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
  })
  export class HomePage {
   constructor(public navCtrl: NavController) {}
-  autorizaracceso(){
-   this.navCtrl.push(AutorizaraccesoPage);
+  login(){
+   this.navCtrl.push(UserloginPage);
   }
   
  }

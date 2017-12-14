@@ -11,6 +11,7 @@ import { TeetimePage } from '../pages/teetime/teetime';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
 import { MenuPage } from '../pages/menu/menu';
+import { UserloginPage } from '../pages/userlogin/userlogin';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuPage } from '../pages/menu/menu';
     TeetimePage,
     JugadoresPage,
     MisreservacionesPage,
-    MenuPage
+    MenuPage,
+    UserloginPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { MenuPage } from '../pages/menu/menu';
     TeetimePage,
     JugadoresPage,
     MisreservacionesPage,
-    MenuPage
+    MenuPage,
+    UserloginPage
   ],
   providers: [
     StatusBar,
