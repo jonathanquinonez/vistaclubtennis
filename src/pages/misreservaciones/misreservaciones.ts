@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
+
 /**
- * Generated class for the JugadoresPage page.
+ * Generated class for the MisreservacionesPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,18 @@ import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
 
 @IonicPage()
 @Component({
-  selector: 'page-jugadores',
-  templateUrl: 'jugadores.html',
+  selector: 'page-misreservaciones',
+  templateUrl: 'misreservaciones.html',
 })
-export class JugadoresPage {
+export class MisreservacionesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
-  misreservaciones(){
-    this.navCtrl.push(MisreservacionesPage);
-  }
+
   
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JugadoresPage');
+    console.log('ionViewDidLoad MisreservacionesPage');
   }
 
 }

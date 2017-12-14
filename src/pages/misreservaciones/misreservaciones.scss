@@ -1,4 +1,4 @@
-page-teetime {
+page-misreservaciones {
     ion-slides{ max-height:23%;}
    
     /*.toolbar-background{ background:transparent; border-style:none;}
@@ -44,7 +44,9 @@ page-teetime {
     padding: 9px 12px 9px 12px;
     font-size: 12px;
     color: white;
-    
+    width:140px;
+    height:35px;
+    box-shadow: #444;
     margin-top: 5px; }
 .botont:hover{background-color: #00482f;}
 

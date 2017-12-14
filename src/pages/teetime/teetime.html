@@ -14,53 +14,11 @@
   
     <div class = "row responsive-sm" >
       <!-- div posicionamiento 25 -->
-    <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
-     
-    <div class="titulo-div">
-      <div class="fecha">
-          <p>fecha</p>
-      </div>
-      <div class="hora">
-          <p>hora</p>
-      </div>  
-    </div>    
-  
-    <div >
-      <div class="nombres"style="text-align: center; font-size: 12px;">
-        <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
-      </div>
-  
-        <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-            <ion-icon name="trash" class="icon-trash"></ion-icon>
-          </div>
-         
-        </div>
-    </div>
+ 
   
     
   
-    <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
-        
-       <div class="titulo-div">
-         <div class="fecha">
-             <p>fecha</p>
-         </div>
-         <div class="hora">
-             <p>hora</p>
-         </div>  
-       </div>    
-     
-       <div >
-         <div class="nombres" style="text-align: center; font-size: 12px;">
-           <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
-         </div>
-     
-           <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-               <ion-icon name="trash" class="icon-trash"></ion-icon>
-            </div>
-            
-           </div>
-       </div>
+    
   
        
        
@@ -69,10 +27,71 @@
           
           
          
-            <button class="botont center22" (click)="autorizaracceso()">Reservar</button>
+       
   
   
       <!-- div posicionamiento 25 -->
   </div>
+
+  <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+            <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
+                
+               <div class="titulo-div">
+                 <div class="fecha">
+                     <p>fecha</p>
+                 </div>
+                 <div class="hora">
+                     <p>hora</p>
+                 </div>  
+               </div>    
+             
+               <div >
+                 <div class="nombres"style="text-align: center; font-size: 12px;">
+                   <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
+                 </div>
+             
+                   <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
+                       <ion-icon name="trash" class="icon-trash"></ion-icon>
+                     </div>
+                    
+                   </div>
+               </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+              <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
+                  
+                 <div class="titulo-div">
+                   <div class="fecha">
+                       <p>fecha</p>
+                   </div>
+                   <div class="hora">
+                       <p>hora</p>
+                   </div>  
+                 </div>    
+               
+                 <div >
+                   <div class="nombres" style="text-align: center; font-size: 12px;">
+                     <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
+                   </div>
+               
+                     <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
+                         <ion-icon name="trash" class="icon-trash"></ion-icon>
+                      </div>
+                      
+                     </div>
+                 </div>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+        <ion-col col-12>
+            <button class="botont center22" (click)="jugadores()">Autorizar</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-content>
   

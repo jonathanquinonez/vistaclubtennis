@@ -13,20 +13,21 @@ page-autorizaracceso {
         background-size: cover; ;
        //  background-size:100% auto;
       }
-ion-list{
+      ion-item{
     opacity: 0.6;
     margin-left: 25px;
     margin-right: 25px;
  }     
 
 .contenedor-superior{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .contenedor-inferior{
-    margin-left: 30px;
-    margin-right: 30px;
-    display: block;
+   
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
 }
 
 
@@ -73,7 +74,30 @@ ion-list{
 
 .div-boton{
     
-    margin: auto;
+    text-align: auto;
    
 
 }
+$grid-columns:               12 !default;
+
+$grid-padding-width:         10px !default;
+
+$grid-padding-widths: (
+  xs: $grid-padding-width,
+  sm: $grid-padding-width,
+  md: $grid-padding-width,
+  lg: $grid-padding-width,
+  xl: $grid-padding-width
+) !default;
+
+$grid-breakpoints: (
+    sm: 0,
+    md: 768px,
+    lg: 1024px
+  );
+  
+  $grid-max-widths: (
+    sm: 420px,
+    md: 720px,
+    lg: 960px
+  );

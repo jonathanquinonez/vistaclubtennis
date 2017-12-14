@@ -8,13 +8,17 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
 import { TeetimePage } from '../pages/teetime/teetime';
+import { JugadoresPage } from '../pages/jugadores/jugadores';
+import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AutorizaraccesoPage,
-    TeetimePage
+    TeetimePage,
+    JugadoresPage,
+    MisreservacionesPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { TeetimePage } from '../pages/teetime/teetime';
     MyApp,
     HomePage,
     AutorizaraccesoPage,
-    TeetimePage
+    TeetimePage,
+    JugadoresPage,
+    MisreservacionesPage
   ],
   providers: [
     StatusBar,
