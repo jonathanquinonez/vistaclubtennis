@@ -22,7 +22,7 @@
       <ion-grid>
           <ion-row class="opacidad">
             <ion-col col-12>
-                <button ion-item>
+                <button ion-item (click)="jugadores()">
                     <ion-icon name="medical" item-start></ion-icon>
                     Informe  de gestion
                   </button>
@@ -30,31 +30,31 @@
           </ion-row>
           <ion-row class="opacidad">
               <ion-col col-12>
-                  <button ion-item>
-                      <ion-icon name="cafe" item-start></ion-icon>
+                  <button ion-item (click)="jugadores()">
+                      <ion-icon name="md-people" item-start></ion-icon>
                       Mis Afiliados
                     </button>
               </ion-col>
             </ion-row>
             <ion-row class="opacidad">
                 <ion-col col-12>
-                    <button ion-item>
-                        <ion-icon name="paw" item-start></ion-icon>
+                    <button ion-item (click)="home1()">
+                        <ion-icon name="md-contacts" item-start></ion-icon>
                         Invitados
                       </button>
                 </ion-col>
               </ion-row>
               <ion-row class="opacidad">
                   <ion-col col-12>
-                      <button ion-item>
-                          <ion-icon name="beer" item-start></ion-icon>
+                      <button ion-item (click)="teetime()">
+                          <ion-icon name="md-flag" item-start></ion-icon>
                           Tee Time
                         </button>
                   </ion-col>
                 </ion-row>
           <ion-row class="opacidad">
             <ion-col col-12>
-                <button ion-item>
+                <button ion-item (click)="misreservaciones()">
                     <ion-icon name="md-tennisball" item-start></ion-icon>
                     Cancha de Tennis
                   </button>
