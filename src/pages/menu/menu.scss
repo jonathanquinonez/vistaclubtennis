@@ -1,4 +1,4 @@
-page-dashboard {
+page-menu  {
     ion-slides{ max-height:23%;}
    
     /*.toolbar-background{ background:transparent; border-style:none;}
@@ -53,8 +53,14 @@ page-dashboard {
     margin-right: auto;
     display: block;
 }
-
- 
+ion-card{
+    opacity: 0.6;
+    margin-left: 25px;
+    margin-right: 25px;
+ }     
+ .opacidad{
+    opacity: 0.7;
+ }
    
 
 .icon-trash{

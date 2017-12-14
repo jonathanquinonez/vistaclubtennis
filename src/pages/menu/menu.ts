@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuPage } from '../menu/menu';
+
 /**
- * Generated class for the MisreservacionesPage page.
+ * Generated class for the MenuPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,20 +10,16 @@ import { MenuPage } from '../menu/menu';
 
 @IonicPage()
 @Component({
-  selector: 'page-misreservaciones',
-  templateUrl: 'misreservaciones.html',
+  selector: 'page-menu',
+  templateUrl: 'menu.html',
 })
-export class MisreservacionesPage {
+export class MenuPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  menu(){
-    this.navCtrl.push(MenuPage);
-   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MisreservacionesPage');
+    console.log('ionViewDidLoad MenuPage');
   }
 
 }

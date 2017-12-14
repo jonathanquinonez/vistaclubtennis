@@ -10,6 +10,7 @@ import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
 import { TeetimePage } from '../pages/teetime/teetime';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
+import { MenuPage } from '../pages/menu/menu';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones
     AutorizaraccesoPage,
     TeetimePage,
     JugadoresPage,
-    MisreservacionesPage
+    MisreservacionesPage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones
     AutorizaraccesoPage,
     TeetimePage,
     JugadoresPage,
-    MisreservacionesPage
+    MisreservacionesPage,
+    MenuPage
   ],
   providers: [
     StatusBar,

@@ -8,6 +8,7 @@ import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
 import { TeetimePage } from '../pages/teetime/teetime';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
+import { MenuPage } from '../pages/menu/menu';
 
 
 @Component({
