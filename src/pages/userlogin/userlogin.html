@@ -4,15 +4,52 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>userlogin</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
+<ion-content padding class="contenedor-principal">
+    <form>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+              <img  src="assets/images/tennis/logo.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+              <p class="tecolor" style="font-family: MyriadProBold; color:#fff; text-align: center;"> <strong>INICIO DE SESIÓN</strong> </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+              
+                    <ion-list no-lines padding-top >
+                  
+                      <ion-item class="iblack center " style="width:90%;" >
+                        <ion-label > <img src="assets/images/user.png" style="width: 50%; "></ion-label>
+                        <ion-input  type="text" placeholder="Usuario"   required></ion-input>
+                      </ion-item>
+                      <ion-item class="iblack center"  style="width:90%;">
+                        <ion-label  > <img src="assets/images/lock.png" style="width: 60%; "></ion-label>
+                        <ion-input type="password" placeholder="Contraseña"  required></ion-input>
+                      </ion-item>
+                    </ion-list>
+                   
+                    
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+                <button ion-button block round class="botont center"  style="font-family: MyriadProBold; width:80%;"   >Iniciar Sesión</button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+                <ion-col col-12>
+                    
+                        <ion-toolbar style="background-color:#f3f3f3;">
+                          <ion-title  text-center  style="font-family: MyriadPro; font-size:0.5em ;"><p style="font-family: MyriadPro;color:#2c3e50; font-size:0.8em ;">Obtener Credenciales para iniciar sesión</p></ion-title>
+                        </ion-toolbar>
+                      
+                </ion-col>
+          </ion-row>
+      </ion-grid>
+    </form>
 
 </ion-content>
