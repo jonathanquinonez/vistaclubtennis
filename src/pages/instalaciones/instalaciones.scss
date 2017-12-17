@@ -1,0 +1,42 @@
+
+page-instalaciones {
+    //.toolbar-background{ background:transparent; border-style:none;}
+         // .toolbar::after,.header-md::after{ background-image:none;}
+                   .botont{ background-color: #2c3e50; border-radius: 5px; }
+                 .botont:hover{background-color: #00482f}
+      .iblack{ background: -webkit-linear-gradient(bottom left, #ecf0f1, #ecf0f1);
+      background: -o-linear-gradient(bottom right, #ecf0f1, #ecf0f1);
+      background: -moz-linear-gradient(bottom right, #ecf0f1, #ecf0f1);
+      background: linear-gradient(to bottom right, #ecf0f1, #ecf0f1); 
+      .footer-background{ background-color:#2c3e50 !important ;}
+      color: #333;font-family: MyriadPro;border-radius: 7px;opacity: 0.8;}
+    }
+    .contenedor-principal{
+        //background-color:color($colors,primary);
+          background-image:url('../assets/images/tennis/fondo2.jpg');  -webkit-background-size: cover; 
+      -moz-background-size: cover;
+       -o-background-size: cover; 
+        background-size: cover; ;
+       //  background-size:100% auto;
+      }
+    .boton{ background: #ef623f;
+                  background-image: -webkit-linear-gradient(top, #ef623f, #D3613B);
+                  background-image: -moz-linear-gradient(top, #ef623f, #D3613B);
+                  background-image: -ms-linear-gradient(top, #ef623f, #D3613B);
+                  background-image: -o-linear-gradient(top, #ef623f, #D3613B);
+                  background-image: linear-gradient(to bottom, #ef623f, #D3613B);
+                  -webkit-border-radius: 60;
+                  -moz-border-radius: 60;
+                  border-radius: 60px;
+                  font-family: Arial;
+                  color: #ffffff;
+                  font-size: 12px;
+                  padding: 5px 10px 5px 10px;
+                  border: solid #ffffff 6px;
+                  text-decoration: none;}
+                  .tecolor{ color: #fff; text-transform: capitalize;font-weight: lighter; font-size: 1em;}
+           
+    
+    
+      
+    

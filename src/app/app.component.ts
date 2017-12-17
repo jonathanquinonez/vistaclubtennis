@@ -10,13 +10,15 @@ import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MenuPage } from '../pages/menu/menu';
 import { UserloginPage } from '../pages/userlogin/userlogin';
+import { MenuprincipalPage } from '../pages/menuprincipal/menuprincipal';
+import { UsersProvider } from '../providers/users/users';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage:any = MenuprincipalPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
