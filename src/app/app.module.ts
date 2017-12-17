@@ -22,7 +22,11 @@ import { InstalacionesPage } from '../pages/instalaciones/instalaciones';
 import { DeportesPage } from '../pages/deportes/deportes';
 import { EventosPage } from '../pages/eventos/eventos';
 import { UsersProvider } from '../providers/users/users';
+
 import { RestGrastronomiaProvider } from '../providers/rest-grastronomia/rest-grastronomia';
+import { RestInstalacionesProvider } from '../providers/rest-instalaciones/rest-instalaciones';
+import { RestDeportesProvider } from '../providers/rest-deportes/rest-deportes';
+import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
 
 
 @NgModule({
@@ -69,7 +73,10 @@ import { RestGrastronomiaProvider } from '../providers/rest-grastronomia/rest-gr
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersProvider,
-    RestGrastronomiaProvider
+    RestGrastronomiaProvider,
+    RestInstalacionesProvider,
+    RestDeportesProvider,
+    RestEventosProvider
   ]
 })
 export class AppModule {}

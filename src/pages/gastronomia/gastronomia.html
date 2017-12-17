@@ -7,39 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>gastronomia</ion-title>
+    <ion-title>Gastronomia</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding class="contenedor-principal">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+ <!-- ion slides --> 
+  <div  no-padding *ngFor="let users of users.data">
 
-        
-<h1>titulo</h1>
-     
-<!-- <ion-list inset>
-    <ion-item *ngFor="let users of users.data">
-      <h2>{{users.id}}</h2>
-      <p>{{users.nombre}}</p>
-      <img src="{{users.video}}"/>
-    </ion-item>
-  </ion-list>
---> 
- <!-- ion slides -->
- 
-  <div class = "col col-25" no-padding *ngFor="let users of users.data">
-   
-          <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%" *ngFor="let users of users.data">
+  <div class = "col col-25 Backinfo sombras" *ngIf="(users.tipo == 1)"> <!--  inicio ngIf-->
+          <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
           <!-- slide final -->
           <ion-slide>
           <img src="{{users.video}}" style="width:100%">
           
-    </ion-slide>
-      
+    </ion-slide>      
           <!-- slide final-->       
         </ion-slides>
      <!-- ion slides -->
+     <div class = "row responsive-sm titles" no-padding >
+      <div class = "col col-25 " text-center>{{users.nombre}}</div>
   </div>
-
+  <div class = "row Backinfo  " padding>
+    <p class = "col col-50" text-center>{{users.descripcion}}</p>
+  </div>
+</div> <!-- fin ngIf -->
+  </div>
 </ion-content>

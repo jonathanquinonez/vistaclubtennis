@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { RestDeportesProvider } from '../../providers/rest-deportes/rest-deportes';
 /**
  * Generated class for the DeportesPage page.
  *
@@ -15,11 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class DeportesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  deportes:any= [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams , public restdeportesprovider: RestDeportesProvider) {
+    this.getDeportes();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DeportesPage');
+  }
+
+  getDeportes() {
+    this.restdeportesprovider.getDeportes()
+    .then(data => {
+      this.deportes = data;
+     
+      console.log(this.deportes);
+    })
   }
 
 }

@@ -7,12 +7,34 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>eventos</ion-title>
+    <ion-title>Eventos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="contenedor-principal">
+
+  <!-- ion slides --> 
+<div  no-padding *ngFor="let eventos of eventos.data">
+    
+      <div class = "col col-25 Backinfo sombras">
+              <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
+              <!-- slide final -->
+              <ion-slide>
+              <img src="{{eventos.video}}" style="width:100%">
+              
+        </ion-slide>      
+              <!-- slide final-->       
+            </ion-slides>
+         <!-- ion slides -->
+         <div class = "row responsive-sm titles" no-padding >
+          <div class = "col col-25 " text-center>{{eventos.nombre}}</div>
+      </div>
+      <div class = "row Backinfo  " padding>
+        <p class = "col col-50" text-center>{{eventos.descripcion}}</p>
+      </div>
+    </div>
+      </div>
 
 </ion-content>

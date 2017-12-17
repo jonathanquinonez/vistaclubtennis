@@ -16,7 +16,7 @@ export class RestGrastronomiaProvider {
   }
 
   apiUrl = 'http://api.tennisgolfclub.com.co/public/instalaciones';
- public getUsers() {
+ public getGastronomia() {
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/mostrar').subscribe(data => {
         resolve(data);
@@ -25,4 +25,7 @@ export class RestGrastronomiaProvider {
       });
     });
   }
+
+
+  
 }

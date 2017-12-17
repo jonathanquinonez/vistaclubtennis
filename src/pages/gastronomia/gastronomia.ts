@@ -20,25 +20,34 @@ export class GastronomiaPage {
   users: any = [];
   
   constructor(private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restgrastronomiaprovider: RestGrastronomiaProvider) {
-    this.getUsers();
+    this.getGastronimia();
   }
- getUsers() {
-    this.restgrastronomiaprovider.getUsers()
+ getGastronimia() {
+    this.restgrastronomiaprovider.getGastronomia()
     .then(data => {
       this.users = data;
      
       console.log(this.users);
-    }/*, error=>{
-      
-      let alert = this.alertController.create({
-        title:'Problemas al consultar la información', 
-        subTitle:error.message,
-        buttons:['OK']
-      });
-      alert.present();
-      this.navCtrl.pop();
-      console.log(error);
-    }*/)
+    })
+  }
+
+
+  getItems(ev) {
+    // Reset items back to all of the items
+    //this.getGastronimia();
+
+    // set val to the value of the ev target
+    var val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.users.data = this.users.data.filter((item) => {
+        return (item.nombre.toLowerCase().indexOf(val) > -1);
+      })
+    }else{
+
+      this.getGastronimia();
+    }
   }
   
   ionViewDidLoad() {

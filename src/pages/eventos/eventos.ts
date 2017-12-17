@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { RestEventosProvider } from '../../providers/rest-eventos/rest-eventos';
 /**
  * Generated class for the EventosPage page.
  *
@@ -15,7 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EventosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  eventos:any= [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public resteventosprovider: RestEventosProvider) {
+    this.getEventos();
+  }
+  getEventos() {
+    this.resteventosprovider.getEventos()
+    .then(data => {
+      this.eventos = data;
+     
+      console.log(this.eventos);
+    })
   }
 
   ionViewDidLoad() {
