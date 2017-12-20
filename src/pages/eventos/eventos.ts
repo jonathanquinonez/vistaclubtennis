@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalleeventoPage } from '../detalleevento/detalleevento';
+
 import { RestEventosProvider } from '../../providers/rest-eventos/rest-eventos';
 /**
  * Generated class for the EventosPage page.
@@ -16,16 +18,25 @@ import { RestEventosProvider } from '../../providers/rest-eventos/rest-eventos';
 export class EventosPage {
 
   eventos:any= [];
-
+  IdEvento;
   constructor(public navCtrl: NavController, public navParams: NavParams, public resteventosprovider: RestEventosProvider) {
     this.getEventos();
   }
+
+  //// consulta todos los eventos 
   getEventos() {
     this.resteventosprovider.getEventos()
     .then(data => {
       this.eventos = data;
      
       console.log(this.eventos);
+    })
+  }
+
+  ////// envio de parametro evento selecionado 
+  detalleevento(id){
+    this.navCtrl.push(DetalleeventoPage, {
+      idEvento: id,
     })
   }
 

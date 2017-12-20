@@ -6,6 +6,7 @@ import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
 import { TeetimePage } from '../teetime/teetime';
 import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
 import { JugadoresPage } from '../jugadores/jugadores';
+import { MenuprincipalPage } from '../menuprincipal/menuprincipal';
 
 /**
  * Generated class for the MenuPage page.
@@ -38,6 +39,9 @@ export class MenuPage {
    }
    jugadores(){
     this.navCtrl.push(JugadoresPage);
+   }
+   menuprincipal(){
+    this.navCtrl.push(MenuprincipalPage);
    }
 
   ionViewDidLoad() {

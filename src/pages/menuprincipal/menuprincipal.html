@@ -6,7 +6,12 @@
 -->
 <ion-header>
     
-          <ion-title>Tennis Golf Club</ion-title>
+  <ion-navbar  hideBackButton="true">
+    <ion-title>Tennis Golf Club</ion-title>
+<button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
+
+
+</ion-navbar>
       
   </ion-header>
 
@@ -28,7 +33,7 @@
         <div   class = "col" ><img (click)="eventos()" src="assets/images/tennis/eventos.png"></div>
 
         </div>
-        <ion-footer class="footer-background">
+        <ion-footer class="footer-background" (click)="menu2()">
 
           <ion-title text-center  style="font-family: MyriadPro; font-size:0.5em ;"><p style="font-family: MyriadPro;color:#fff;; font-size:0.8em ;">Zona de Asociados</p></ion-title>
 

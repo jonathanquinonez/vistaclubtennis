@@ -9,9 +9,10 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class RestEventosProvider {
-
+  public idEvento;
   constructor(public http: HttpClient) {
     console.log('Hello RestEventosProvider Provider');
+    this.idEvento = http.get("idEvento");
   }
 
   apiUrl = 'http://api.tennisgolfclub.com.co/public/eventos';
@@ -25,5 +26,29 @@ export class RestEventosProvider {
      });
    }
 
+   apiUrlDetalle = 'http://api.tennisgolfclub.com.co/public/eventos/imagenes/';
+   public getDetalleEvento(iddetalleevento) {
+      return new Promise(resolve => {
+        this.http.get(this.apiUrlDetalle+iddetalleevento).subscribe(data => {
+          resolve(data);
+          console.log(this.apiUrlDetalle+iddetalleevento);
+        }, err => {
+          console.log(err);
+        });
+      });
+    }
+
+    apiUrlidEvento = 'http://api.tennisgolfclub.com.co/public/eventos/mostrar/';
+    public getEventoId(idevento) {
+       return new Promise(resolve => {
+         this.http.get(this.apiUrlidEvento+idevento).subscribe(data => {
+           resolve(data);
+           console.log(this.apiUrlidEvento+idevento);
+         }, err => {
+           console.log(err);
+         });
+       });
+     }
+ 
 
 }

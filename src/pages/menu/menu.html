@@ -6,18 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>menu</ion-title>
-  </ion-navbar>
+    <ion-navbar  hideBackButton="true">
+        
+     <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
+     
+     
+     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding class="contenedor-principal">
 
-<h1 class="titulo">Menu</h1>
-
-    
+<div style="height:40px;"></div>
+<img (click)="menuprincipal()" src="assets/images/tennis/logo.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
 
       <ion-grid>
           <ion-row class="opacidad">

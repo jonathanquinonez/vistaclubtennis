@@ -21,12 +21,16 @@ import { GastronomiaPage } from '../pages/gastronomia/gastronomia';
 import { InstalacionesPage } from '../pages/instalaciones/instalaciones';
 import { DeportesPage } from '../pages/deportes/deportes';
 import { EventosPage } from '../pages/eventos/eventos';
-import { UsersProvider } from '../providers/users/users';
+import { DetalleeventoPage } from '../pages/detalleevento/detalleevento';
+import { ProfilePage } from '../pages/profile/profile';
 
+import { UsersProvider } from '../providers/users/users';
 import { RestGrastronomiaProvider } from '../providers/rest-grastronomia/rest-grastronomia';
 import { RestInstalacionesProvider } from '../providers/rest-instalaciones/rest-instalaciones';
 import { RestDeportesProvider } from '../providers/rest-deportes/rest-deportes';
 import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
+import { RestTeetimeProvider } from '../providers/rest-teetime/rest-teetime';
+import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/rest-misinvitaciones';
 
 
 @NgModule({
@@ -43,12 +47,15 @@ import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
     GastronomiaPage,
     InstalacionesPage,
     DeportesPage,
-    EventosPage
+    EventosPage,
+    DetalleeventoPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule 
+
     
    
   ],
@@ -66,7 +73,9 @@ import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
     GastronomiaPage,
     InstalacionesPage,
     DeportesPage,
-    EventosPage
+    EventosPage,
+    DetalleeventoPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
@@ -76,7 +85,10 @@ import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
     RestGrastronomiaProvider,
     RestInstalacionesProvider,
     RestDeportesProvider,
-    RestEventosProvider
+    RestEventosProvider,
+    HttpClientModule,
+    RestTeetimeProvider,
+    RestMisinvitacionesProvider 
   ]
 })
 export class AppModule {}

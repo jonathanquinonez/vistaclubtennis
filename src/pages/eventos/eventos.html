@@ -6,9 +6,12 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Eventos</ion-title>
-  </ion-navbar>
+    <ion-navbar  hideBackButton="true">
+        
+     <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
+     
+     
+     </ion-navbar>
 
 </ion-header>
 
@@ -16,10 +19,10 @@
 <ion-content padding class="contenedor-principal">
 
   <!-- ion slides --> 
-<div  no-padding *ngFor="let eventos of eventos.data">
+<div  no-padding *ngFor="let eventos of eventos.data" >
     
-      <div class = "col col-25 Backinfo sombras">
-              <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
+      <div class = "col col-25 Backinfo sombras" (click)="detalleevento(eventos.id)" >
+              <ion-slides autoplay="2000" speed="900"  style="width:100%">
               <!-- slide final -->
               <ion-slide>
               <img src="{{eventos.video}}" style="width:100%">
@@ -31,9 +34,7 @@
          <div class = "row responsive-sm titles" no-padding >
           <div class = "col col-25 " text-center>{{eventos.nombre}}</div>
       </div>
-      <div class = "row Backinfo  " padding>
-        <p class = "col col-50" text-center>{{eventos.descripcion}}</p>
-      </div>
+      
     </div>
       </div>
 
