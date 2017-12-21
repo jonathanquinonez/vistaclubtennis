@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -17,11 +17,18 @@
 
 
 <ion-content padding class="contenedor-principal">
+    
+    <div class = "row center2" style="width:70%">
+        <div   class = "col" ><img  (click)="sugerenciasModal()" src="assets/images/tennis/logo-chef.png"><strong style="color: #fff;"> <b>Sugerencias Chef</b></strong></div>
+        <div   class = "col" ><img (click)="saborModal()" src="assets/images/tennis/logo-gourmet.png"><strong style="color: #fff;"><b>Sabor Gourmet</b></strong></div>
+        </div>
+  
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    
  <!-- ion slides --> 
   <div  no-padding *ngFor="let users of users.data">
-
-  <div class = "col col-25 Backinfo sombras" *ngIf="(users.tipo == 1)"> <!--  inicio ngIf-->
+      
+  <div class = "col col-25 Backinfo sombras" *ngIf="(users.tipo == 1)" (click)="detallegastronomia(users.id)" > <!--  inicio ngIf-->
           <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
           <!-- slide final -->
           <ion-slide>
@@ -33,9 +40,6 @@
      <!-- ion slides -->
      <div class = "row responsive-sm titles" no-padding >
       <div class = "col col-25 " text-center>{{users.nombre}}</div>
-  </div>
-  <div class = "row Backinfo  " padding>
-    <p class = "col col-50" text-center>{{users.descripcion}}</p>
   </div>
 </div> <!-- fin ngIf -->
   </div>

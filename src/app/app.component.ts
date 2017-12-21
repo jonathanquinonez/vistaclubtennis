@@ -18,6 +18,7 @@ import { DeportesPage } from '../pages/deportes/deportes';
 import { EventosPage } from '../pages/eventos/eventos';
 import { DetalleeventoPage } from '../pages/detalleevento/detalleevento';
 import { ProfilePage } from '../pages/profile/profile';
+import { DetallegastronomiaPage } from '../pages/detallegastronomia/detallegastronomia';
 
 
 import { UsersProvider } from '../providers/users/users';
@@ -35,7 +36,7 @@ export class MyApp {
     public datos: any;
    @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = UserloginPage;
+  rootPage:any = GastronomiaPage;
 
 
   user: User;

@@ -7,7 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-
+//pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
@@ -23,7 +23,15 @@ import { DeportesPage } from '../pages/deportes/deportes';
 import { EventosPage } from '../pages/eventos/eventos';
 import { DetalleeventoPage } from '../pages/detalleevento/detalleevento';
 import { ProfilePage } from '../pages/profile/profile';
+import { DetallegastronomiaPage } from '../pages/detallegastronomia/detallegastronomia'
 
+
+//modales
+import { SaborgourmetPage } from '../pages/saborgourmet/saborgourmet';
+import { SugerenciaschefPage } from '../pages/sugerenciaschef/sugerenciaschef';
+
+
+/// providers
 import { UsersProvider } from '../providers/users/users';
 import { RestGrastronomiaProvider } from '../providers/rest-grastronomia/rest-grastronomia';
 import { RestInstalacionesProvider } from '../providers/rest-instalaciones/rest-instalaciones';
@@ -31,6 +39,7 @@ import { RestDeportesProvider } from '../providers/rest-deportes/rest-deportes';
 import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
 import { RestTeetimeProvider } from '../providers/rest-teetime/rest-teetime';
 import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/rest-misinvitaciones';
+import { RestReservacionesProvider } from '../providers/rest-reservaciones/rest-reservaciones';
 
 
 @NgModule({
@@ -49,7 +58,10 @@ import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/r
     DeportesPage,
     EventosPage,
     DetalleeventoPage,
-    ProfilePage
+    ProfilePage,
+    SaborgourmetPage,
+    SugerenciaschefPage,
+    DetallegastronomiaPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +87,10 @@ import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/r
     DeportesPage,
     EventosPage,
     DetalleeventoPage,
-    ProfilePage
+    ProfilePage,
+    SaborgourmetPage,
+    SugerenciaschefPage,
+    DetallegastronomiaPage
   ],
   providers: [
     StatusBar,
@@ -88,7 +103,8 @@ import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/r
     RestEventosProvider,
     HttpClientModule,
     RestTeetimeProvider,
-    RestMisinvitacionesProvider 
+    RestMisinvitacionesProvider,
+    RestReservacionesProvider 
   ]
 })
 export class AppModule {}

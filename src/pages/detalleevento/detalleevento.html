@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -18,7 +18,7 @@
 
 <ion-content padding class="contenedor-principal">
 
-<h1 class="titulo"> Evento </h1>
+<h1 class="titulo" *ngIf="Infoevento.data"> {{Infoevento.data.nombre}} </h1>
 
   <div no-padding>
 

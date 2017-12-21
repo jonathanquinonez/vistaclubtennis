@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,LoadingController, AlertController,ToastController} from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,LoadingController, AlertController,ToastController,  ViewController } from 'ionic-angular';
 
 import { RestGrastronomiaProvider } from '../../providers/rest-grastronomia/rest-grastronomia';
+import { DetallegastronomiaPage } from '../detallegastronomia/detallegastronomia'
+
+//modal
+import { SaborgourmetPage } from '../saborgourmet/saborgourmet';
+import { SugerenciaschefPage } from '../sugerenciaschef/sugerenciaschef';
+
 /*import { RestProvider } from '../../providers/rest-gastronomia/rest-gastronomia';
 /**
  * Generated class for the GastronomiaPage page.
@@ -18,8 +25,8 @@ import { RestGrastronomiaProvider } from '../../providers/rest-grastronomia/rest
 
 export class GastronomiaPage {
   users: any = [];
-  
-  constructor(private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restgrastronomiaprovider: RestGrastronomiaProvider) {
+  iddetalle:any;
+  constructor(public viewCtrl: ViewController, public params: NavParams, public modalCtrl: ModalController, private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restgrastronomiaprovider: RestGrastronomiaProvider) {
     this.getGastronimia();
   }
  getGastronimia() {
@@ -31,6 +38,11 @@ export class GastronomiaPage {
     })
   }
 
+  detallegastronomia(id){
+    this.navCtrl.push(DetallegastronomiaPage, {
+      iddetallegastronomia: id,
+    })
+  }
 
   getItems(ev) {
     // Reset items back to all of the items
@@ -50,9 +62,22 @@ export class GastronomiaPage {
     }
   }
   
+  saborModal() {
+    let modal = this.modalCtrl.create(SaborgourmetPage);
+    modal.present();
+  }
+  sugerenciasModal() {
+    let modal1 = this.modalCtrl.create(SugerenciaschefPage);
+    modal1.present();
+  }
+
+
+
   ionViewDidLoad() {
 
     console.log('ionViewDidLoad GastronomiaPage');
   }
 
+  
 }
+

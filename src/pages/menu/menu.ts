@@ -7,6 +7,7 @@ import { TeetimePage } from '../teetime/teetime';
 import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
 import { JugadoresPage } from '../jugadores/jugadores';
 import { MenuprincipalPage } from '../menuprincipal/menuprincipal';
+import { MisinvitacionesPage } from '../misinvitaciones/misinvitaciones';
 
 /**
  * Generated class for the MenuPage page.
@@ -43,7 +44,9 @@ export class MenuPage {
    menuprincipal(){
     this.navCtrl.push(MenuprincipalPage);
    }
-
+ misinvitaciones(){
+   this.navCtrl.push(MisinvitacionesPage);
+ }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }

@@ -39,7 +39,7 @@ export class RestTeetimeProvider {
   //let other_header = headeres;
  // console.log(other_header.get);
   
-      this.http.get('http://api.tennisgolfclub.com.co/public/personasinvitadasporsocios', { headers: headeres })
+      this.http.get(AppSettings.Api + 'personasinvitadasporsocios', { headers: headeres })
         .subscribe(data => {
           resolve(data),
           console.log(data);
