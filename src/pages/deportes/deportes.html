@@ -20,7 +20,7 @@
 <!-- ion slides --> 
 <div  no-padding *ngFor="let deportes of deportes.data">
     
-      <div class = "col col-25 Backinfo sombras" *ngIf="(deportes.tipo == 2)"> <!--  inicio ngIf-->
+      <div class = "col col-25 Backinfo sombras" *ngIf="(deportes.tipo == 2)" (click)="detalledeporte(deportes.id)"> <!--  inicio ngIf-->
               <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
               <!-- slide final -->
               <ion-slide>
@@ -33,9 +33,7 @@
          <div class = "row responsive-sm titles" no-padding >
           <div class = "col col-25 " text-center>{{deportes.nombre}}</div>
       </div>
-      <div class = "row Backinfo  " padding>
-        <p class = "col col-50" text-center>{{deportes.descripcion}}</p>
-      </div>
+   
     </div> <!-- fin ngIf -->
       </div>
 </ion-content>

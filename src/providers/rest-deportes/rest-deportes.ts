@@ -25,5 +25,32 @@ export class RestDeportesProvider {
      });
    }
 
+   // consulta todas las  imagenes del restaurante seleccionado
+  apiUrlDetalle = 'http://api.tennisgolfclub.com.co/public/instalaciones/imagenes/';
+  public getImgdeporte(iddetalledeporte) {
+     return new Promise(resolve => {
+       this.http.get(this.apiUrlDetalle+iddetalledeporte).subscribe(data => {
+         resolve(data);
+         console.log(this.apiUrlDetalle+iddetalledeporte);
+       }, err => {
+         console.log(err);
+       });
+     });
+   }
+
+   // consulta el restaurante seleccionado para traer la informacio del restaurante
+   apiUrlidEvento = 'http://api.tennisgolfclub.com.co/public/instalaciones/mostrar/';
+   public getDetalledeporteId(iddeporte) {
+      return new Promise(resolve => {
+        this.http.get(this.apiUrlidEvento+iddeporte).subscribe(data => {
+          resolve(data);
+          console.log(this.apiUrlidEvento+iddeporte);
+        }, err => {
+          console.log(err);
+        });
+      
+      });
+    
+}
 
 }

@@ -8,6 +8,7 @@ import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
 import { JugadoresPage } from '../jugadores/jugadores';
 import { MenuprincipalPage } from '../menuprincipal/menuprincipal';
 import { MisinvitacionesPage } from '../misinvitaciones/misinvitaciones';
+import { PersonasautorizadasPage } from '../personasautorizadas/personasautorizadas';
 
 /**
  * Generated class for the MenuPage page.
@@ -46,6 +47,9 @@ export class MenuPage {
    }
  misinvitaciones(){
    this.navCtrl.push(MisinvitacionesPage);
+ }
+ personasautorizadas(){
+  this.navCtrl.push(PersonasautorizadasPage);
  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');

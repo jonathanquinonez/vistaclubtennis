@@ -5,6 +5,7 @@ import { InstalacionesPage } from '../instalaciones/instalaciones';
 import { DeportesPage } from '../deportes/deportes';
 import { EventosPage } from '../eventos/eventos';
 import { MenuPage } from '../menu/menu';
+import { NoticiasPage } from '../noticias/noticias';
 
 /**
  * Generated class for the MenuprincipalPage page.
@@ -41,6 +42,10 @@ export class MenuprincipalPage {
 
   menu2(){
     this.navCtrl.push(MenuPage);
+  }
+
+  noticias(){
+    this.navCtrl.push(NoticiasPage);
   }
 
   ionViewDidLoad(){

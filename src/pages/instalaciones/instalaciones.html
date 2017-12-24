@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -33,12 +33,27 @@
     
     <div style="height:20px;"></div>
     
-        <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;"   >Deportivas</button>
-        <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;"   >Salones</button>
-        <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;"   >Corporativas</button>
+      <!--  <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;" (click)="salones()">Salones</button>
+        <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;" (click)="zonarecreativa()">Zona Recreativa</button>
+        <button ion-button block round class="botont2 center"  style="font-family: MyriadProBold; width:80%;"  (click)="spa()">Spa</button>
+      -->
     
-    
-        
+        <ion-grid>
+            <ion-row>
+              <ion-col col-12>
+                  
+                    <img  class="center-img" (click)="salones()" src="assets/images/tennis/salones.png">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-12>
+                <div class = "row center2" style="width:70%">
+                  <div   class = "col" ><img (click)="zonarecreativa()" src="assets/images/tennis/piscina.png"></div>
+                  <div   class = "col" ><img  (click)="spa()" src="assets/images/tennis/spa.png"></div>
+                  </div>
+                </ion-col>
+            </ion-row>
+          </ion-grid>
     
         </ion-list>
     

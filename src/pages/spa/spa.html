@@ -1,0 +1,50 @@
+<!--
+  Generated template for the DetalleeventoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+      <ion-navbar  hideBackButton="true">
+          <ion-title>Tennis Golf Club</ion-title>
+       <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
+       
+       
+       </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="contenedor-principal">
+  
+  <h1 class="titulo" *ngIf="idinfo.data"> {{idinfo.data.nombre}} </h1>
+  
+    <div no-padding>
+  
+      <div class="col col-25 Backinfo sombras">
+        <ion-slides *ngIf="imgspa.data && imgspa.data.length" autoplay="2000" speed="900" loop="true" style="width:100%">
+          <!-- slide final -->
+          <ion-slide *ngFor="let imgspa of imgspa.data">
+            <img src="{{imgspa.url}}" style="width:100%">
+  
+          </ion-slide>
+          <!-- slide final-->
+        </ion-slides>
+        <!-- ion slides -->
+        <div *ngIf="idinfo.data" >
+          <div class="row responsive-sm titles" >
+            <div class="col col-25 " text-center><strong> {{idinfo.data.nombre}}</strong></div>
+          </div>
+          <div class="row Backinfo sombras">
+            <div class="col col-75 " style="padding:15px;" text-center>
+              <strong> </strong> {{idinfo.data.descripcion}}<br>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+  
+  </ion-content>

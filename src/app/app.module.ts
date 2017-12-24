@@ -23,7 +23,18 @@ import { DeportesPage } from '../pages/deportes/deportes';
 import { EventosPage } from '../pages/eventos/eventos';
 import { DetalleeventoPage } from '../pages/detalleevento/detalleevento';
 import { ProfilePage } from '../pages/profile/profile';
-import { DetallegastronomiaPage } from '../pages/detallegastronomia/detallegastronomia'
+import { DetallegastronomiaPage } from '../pages/detallegastronomia/detallegastronomia';
+import { SalonesPage } from '../pages/salones/salones';
+import { SpaPage } from '../pages/spa/spa';
+import { ZonarecreativaPage } from '../pages/zonarecreativa/zonarecreativa';
+import { DetallesalonesPage } from '../pages/detallesalones/detallesalones';
+import { DetallezonarecreativaPage } from '../pages/detallezonarecreativa/detallezonarecreativa';
+import { NoticiasPage } from '../pages/noticias/noticias';
+import { DetallenoticiaPage } from '../pages/detallenoticia/detallenoticia';
+import { PqrsPage } from '../pages/pqrs/pqrs';
+import { DetalledeportePage } from '../pages/detalledeporte/detalledeporte';
+import { PersonasautorizadasPage } from '../pages/personasautorizadas/personasautorizadas';
+import { MisinvitacionesPage } from '../pages/misinvitaciones/misinvitaciones';
 
 
 //modales
@@ -40,6 +51,12 @@ import { RestEventosProvider } from '../providers/rest-eventos/rest-eventos';
 import { RestTeetimeProvider } from '../providers/rest-teetime/rest-teetime';
 import { RestMisinvitacionesProvider } from '../providers/rest-misinvitaciones/rest-misinvitaciones';
 import { RestReservacionesProvider } from '../providers/rest-reservaciones/rest-reservaciones';
+import { RestSalonesProvider } from '../providers/rest-salones/rest-salones';
+import { RestZonarecreativaProvider } from '../providers/rest-zonarecreativa/rest-zonarecreativa';
+import { RestSpaProvider } from '../providers/rest-spa/rest-spa';
+import { RestNoticiasProvider } from '../providers/rest-noticias/rest-noticias';
+import { RestPqrsProvider } from '../providers/rest-pqrs/rest-pqrs';
+import { RestPersonasautorizadasProvider } from '../providers/rest-personasautorizadas/rest-personasautorizadas';
 
 
 @NgModule({
@@ -61,7 +78,18 @@ import { RestReservacionesProvider } from '../providers/rest-reservaciones/rest-
     ProfilePage,
     SaborgourmetPage,
     SugerenciaschefPage,
-    DetallegastronomiaPage
+    DetallegastronomiaPage,
+    SalonesPage,
+    SpaPage,
+    ZonarecreativaPage,
+    DetallesalonesPage,
+    DetallezonarecreativaPage,
+    NoticiasPage,
+    DetallenoticiaPage,
+    PqrsPage,
+    DetalledeportePage,
+    PersonasautorizadasPage,
+    MisinvitacionesPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +118,18 @@ import { RestReservacionesProvider } from '../providers/rest-reservaciones/rest-
     ProfilePage,
     SaborgourmetPage,
     SugerenciaschefPage,
-    DetallegastronomiaPage
+    DetallegastronomiaPage,
+    SalonesPage,
+    SpaPage,
+    ZonarecreativaPage,
+    DetallesalonesPage,
+    DetallezonarecreativaPage,
+    NoticiasPage,
+    DetallenoticiaPage,
+    PqrsPage,
+    DetalledeportePage,
+    PersonasautorizadasPage,
+    MisinvitacionesPage
   ],
   providers: [
     StatusBar,
@@ -104,7 +143,13 @@ import { RestReservacionesProvider } from '../providers/rest-reservaciones/rest-
     HttpClientModule,
     RestTeetimeProvider,
     RestMisinvitacionesProvider,
-    RestReservacionesProvider 
+    RestReservacionesProvider,
+    RestSalonesProvider,
+    RestZonarecreativaProvider,
+    RestSpaProvider,
+    RestNoticiasProvider,
+    RestPqrsProvider,
+    RestPersonasautorizadasProvider 
   ]
 })
 export class AppModule {}

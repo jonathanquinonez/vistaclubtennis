@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
+import { RestMisinvitacionesProvider } from '../../providers/rest-misinvitaciones/rest-misinvitaciones';
+
 /**
  * Generated class for the MisinvitacionesPage page.
  *
@@ -15,9 +17,48 @@ import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
 })
 export class MisinvitacionesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  personas: any = [];
+  testRadioOpen: boolean;
+  testRadioResult;
+  constructor(  public navCtrl: NavController, public navParams: NavParams, public restpersonasautorizadas1: RestMisinvitacionesProvider, public ert: AlertController) {
+  this.getGastronimia();
+  }
+  showRadio() {
+    let alert = this.ert.create();
+    alert.setTitle('Nueva Invitación');
+
+    alert.addInput({
+      type: 'text',
+      placeholder: 'Nombre completo',
+      value: '',
+      checked: true
+    });
+    alert.addInput({
+      type: 'text',
+      placeholder: 'Cedula',
+      value: '',
+      checked: true
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'Invitar',
+      handler: data => {
+        this.testRadioOpen = false;
+        this.testRadioResult = data;
+      }
+    });
+    alert.present();
   }
 
+  getGastronimia() {
+    this.restpersonasautorizadas1.getpersonasautorizada()
+    .then(data => {
+      this.personas = data;
+     
+      console.log(data);
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MisinvitacionesPage');
   }

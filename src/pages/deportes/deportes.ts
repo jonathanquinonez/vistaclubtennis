@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalledeportePage } from  '../detalledeporte/detalledeporte';
+
 import { RestDeportesProvider } from '../../providers/rest-deportes/rest-deportes';
 /**
  * Generated class for the DeportesPage page.
@@ -32,6 +34,12 @@ export class DeportesPage {
      
       console.log(this.deportes);
     })
+  }
+
+  detalledeporte(id){
+    this.navCtrl.push(DetalledeportePage, {
+      iddetalledeporte: id,
+    });
   }
 
 }

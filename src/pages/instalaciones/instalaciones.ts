@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { SalonesPage } from '../salones/salones';
+import { SpaPage } from '../spa/spa';
+import { ZonarecreativaPage } from '../zonarecreativa/zonarecreativa';
 /**
  * Generated class for the InstalacionesPage page.
  *
@@ -18,6 +21,15 @@ export class InstalacionesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  salones(){
+    this.navCtrl.push(SalonesPage);
+  }
+  spa(){
+    this.navCtrl.push(SpaPage);
+  }
+  zonarecreativa(){
+    this.navCtrl.push(ZonarecreativaPage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad InstalacionesPage');
   }
