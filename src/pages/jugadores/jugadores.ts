@@ -19,9 +19,9 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
 export class JugadoresPage {
   LoginForm1:FormGroup;
  turnosx: any = [];
- idturno:any;
+ idturno;
  fechaturno:Date;
- fechaseleccionada:any;
+ fechaseleccionada;
  grupo = {
  jugador1:'',
  jugador2:'',
@@ -30,7 +30,7 @@ export class JugadoresPage {
  }
  currentDatev1 = '2017-09-12';
  currentDatev2 = '2017-12-12';
- myDate: any;
+ myDate;
   constructor(public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     this.LoginForm1 = formBuilder.group({
       jugador11:['',Validators.compose([Validators.required])],
