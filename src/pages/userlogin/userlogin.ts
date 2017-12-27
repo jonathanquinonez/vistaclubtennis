@@ -57,7 +57,7 @@ Login(event){
   
       loader.present();
      console.log('aqui');
-      this.usersprovider.login(this.credentials).then((data:User) =>{
+      /*this.usersprovider.login(this.credentials).then((data:User) =>{
         
         loader.dismissAll();
        // console.log(data['token']);
@@ -75,12 +75,12 @@ Login(event){
         /*this.navCtrl.(TeetimePage,{
           datatoke:data,
         });*/
-        console.log(data);
+   /*     console.log(data);
       }, error =>{
        
-  
+  */
          //console.log('hola'+error.message.correo_electronico);
-           if (error){
+        /*   if (error){
                 this.navCtrl.setRoot(UserloginPage);
                   if(error.message == null || error.message == undefined){
                         let alert = this.alertController.create({
@@ -96,7 +96,7 @@ Login(event){
                           buttons:['OK']
                         });
                         alert.present();
-                    }
+                   }*/
                   /*if(error.message.correo_electronico == null || error.message.correo_electronico == undefined){
                         console.log(error);
                    }else{
@@ -104,13 +104,13 @@ Login(event){
                    }*/
   
   
-  
+  /*
                   }
                   
            
              
              console.log(error);
-           })
+           })*/
           }
          }
 
