@@ -23,6 +23,7 @@ import { SalonesPage } from '../pages/salones/salones';
 import { SpaPage } from '../pages/spa/spa';
 import { ZonarecreativaPage } from '../pages/zonarecreativa/zonarecreativa';
 import { PqrsPage } from '../pages/pqrs/pqrs';
+import { PagoHandicapPage } from '../pages/pago-handicap/pago-handicap';
 
 import { UsersProvider } from '../providers/users/users';
 
@@ -82,6 +83,7 @@ export class MyApp {
             { title: 'Eventos',icon:'ios-color-filter', component: EventosPage , logout : false },
             { title: 'Deportes',icon:'md-baseball', component: DeportesPage , logout : false },
             { title: 'Restaurant',icon:'md-restaurant', component: GastronomiaPage , logout : false },
+            { title: 'Paga en Linea',icon:'md-card', component: PagoHandicapPage , logout : false },
             { title: 'Pqrs',icon:'md-mail', component: PqrsPage , logout : false },
           { title: 'Logout',icon:'md-log-out', component: UserloginPage , logout : true }
     

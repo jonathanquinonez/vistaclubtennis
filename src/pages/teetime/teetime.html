@@ -11,7 +11,7 @@
     
     
     
-    <h1 class="titulo">Mis Tee Time</h1>
+    <h1 class="titulo">Mis Tee Times</h1>
   
     <!-- <div class = "row responsive-sm"  *ngFor="let p0 of datateetime.data">
       div posicionamiento 25 --> 
@@ -34,14 +34,37 @@
                </div>    
              
                <div >
-                 <div class="nombres"style="text-align: center; font-size: 12px;">
-                    <div class = "row responsive-sm"  *ngFor="let p0 of datateetime.data">
-                        <!-- div posicionamiento 25 --> 
+                 <div class="nombres"style="text-align: center; font-size: 12px;" >
+                    <div class = "row responsive-sm" >
+                        <!--ng-repeat="b in datateetime"
+                          *ngIf="b && datateetime.length"
+                          div posicionamiento 25 <li ng-repeat="a in datateetime">
+                  Hola <ol>
+                     <li ng-repeat="b in a">
+                       {{b}}
+                     </li>
+                  </ol>	
+                </li>
+              *ngIf="b && b.length"
+              *ngFor="let teetime of b"
+            --> 
+                
                         <!-- div posicionamiento 25 *ngFor="let teetime of datateetime.data" *ngIf="teetime.data && datateetime.data.length"-->
-                       <p> <strong>{{p0.nombre_completo}}</strong></p>
+                        <ul>
+                            <li ng-repeat="a in datateetime">
+                              Hola <ol>
+                                 <li >
+                                   <p>
+                                     {{a}}
+                                    </p>
+                                 </li>
+                              </ol>	
+                            </li>
+                          </ul>
+                         
                     </div>
                  </div>
-             
+                
                    <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
                        <ion-icon name="trash" class="icon-trash"></ion-icon>
                      </div>

@@ -62,6 +62,7 @@ Login(event){
         loader.dismissAll();
        // console.log(data['token']);
        localStorage["Datos"] = JSON.stringify(data['usuario']);
+       localStorage["correo_user"] = JSON.stringify(this.credentials.correo_electronico);
       // AppSettings.datos = localStorage["Datos"];
         localStorage["User"] = JSON.stringify(data['token']);
         if(data.finished_registration){

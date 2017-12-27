@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="contenedor-principal">
   <div class = "row responsive-sm" >
     
    <h1 class="titulo">Jugadores</h1>
@@ -28,34 +28,37 @@
 
   
 
-  
 
    <ion-grid>
+      
+     
       <ion-row>
           <ion-col col-12>
+              <form [formGroup]="LoginForm1">
               <ion-list>   
                   
                    <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                     <ion-input class="nombreapellido" type="text" placeholder="Nombre y Apellidos (*)"></ion-input>
+                     <ion-input class="nombreapellido"  formControlName="jugador11"  [(ngModel)]="grupo.jugador1" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
                    </ion-item>
                   <br>
                     <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                      <ion-input class="nombreapellido" type="text" placeholder="Nombre y Apellidos (*)"></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador22"  [(ngModel)]="grupo.jugador2" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
                     </ion-item>
                     <br>
                     <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                      <ion-input class="nombreapellido" type="text" placeholder="Nombre y Apellidos (*)"></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador33" [(ngModel)]="grupo.jugador3" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
                     </ion-item>
                     <br>
                     <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                      <ion-input class="nombreapellido" type="text" placeholder="Nombre y Apellidos (*)"></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador44" [(ngModel)]="grupo.jugador4" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
                     </ion-item>
                   
                   </ion-list>
+                </form>
           </ion-col>
         </ion-row>
       <ion-row>
@@ -63,28 +66,31 @@
             
               <ion-item>
             <ion-icon  name="md-calendar" item-start></ion-icon>
-            <ion-input type="date" placeholder="Fecha de Acceso" align="center"></ion-input>
-            <br>
+         
+            <ion-input  (input)='fecha1($event)' [(ngModel)]="fechaturno"  type="date" ngDefaultControl></ion-input>
+           
           </ion-item>
       
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-12>
-           
             <ion-item>
-                <ion-input type="time" placeholder="Hora de Entrada"></ion-input>
-                <ion-icon name="md-time" item-start></ion-icon>
-                <br>
-              </ion-item>
-          
+                <ion-label style="color:#000;">Fechas Disponibles</ion-label>
+            <ion-select  [(ngModel)]="fechaseleccionada" multiple="false" cancelText="Cancelar" okText="Seleccionar!" ngDefaultControl>
+                
+                <ion-option  [(ngModel)]="idturno"  *ngFor="let users of turnosx.data" value="{{users.id}}"  ngDefaultControl>{{users.fecha_hora_inicio}} - {{users.fecha_hora_fin}}</ion-option>  
+            </ion-select>
+            </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
           <ion-col col-12>
-              <button class="botont center22" (click)="misreservaciones()">Reservar</button>
+              <button class="botont center22" (click)="reservar()">Reservar</button>
           </ion-col>
         </ion-row>
+     
     </ion-grid>
+      
 
 </ion-content>

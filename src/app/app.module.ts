@@ -35,6 +35,7 @@ import { PqrsPage } from '../pages/pqrs/pqrs';
 import { DetalledeportePage } from '../pages/detalledeporte/detalledeporte';
 import { PersonasautorizadasPage } from '../pages/personasautorizadas/personasautorizadas';
 import { MisinvitacionesPage } from '../pages/misinvitaciones/misinvitaciones';
+import { PagoHandicapPage } from '../pages/pago-handicap/pago-handicap';
 
 
 //modales
@@ -58,6 +59,8 @@ import { RestNoticiasProvider } from '../providers/rest-noticias/rest-noticias';
 import { RestPqrsProvider } from '../providers/rest-pqrs/rest-pqrs';
 import { RestPersonasautorizadasProvider } from '../providers/rest-personasautorizadas/rest-personasautorizadas';
 
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -89,7 +92,8 @@ import { RestPersonasautorizadasProvider } from '../providers/rest-personasautor
     PqrsPage,
     DetalledeportePage,
     PersonasautorizadasPage,
-    MisinvitacionesPage
+    MisinvitacionesPage,
+    PagoHandicapPage
   ],
   imports: [
     BrowserModule,
@@ -129,7 +133,8 @@ import { RestPersonasautorizadasProvider } from '../providers/rest-personasautor
     PqrsPage,
     DetalledeportePage,
     PersonasautorizadasPage,
-    MisinvitacionesPage
+    MisinvitacionesPage,
+    PagoHandicapPage
   ],
   providers: [
     StatusBar,
@@ -149,7 +154,8 @@ import { RestPersonasautorizadasProvider } from '../providers/rest-personasautor
     RestSpaProvider,
     RestNoticiasProvider,
     RestPqrsProvider,
-    RestPersonasautorizadasProvider 
+    RestPersonasautorizadasProvider ,
+    InAppBrowser,
   ]
 })
 export class AppModule {}

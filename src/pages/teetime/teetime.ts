@@ -21,7 +21,8 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
 })
 export class TeetimePage {
 
-  datateetime:any = [];
+  datateetime: any= [];
+  A: any= [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     console.log( localStorage.getItem('User'))
@@ -34,12 +35,13 @@ export class TeetimePage {
   }
 
   //// consulta todos los usuarios autorizados al teetime de ese usuario
-  getTeetime() {
+ getTeetime() {
     this.restteetime.getTeetime()
-    .then(data2 => {
-      this.datateetime = data2;
-    // this.datateetime.data = this.datateetime;
-      console.log("este es el usuario autorizado"+data2);
+    .then(datos => {
+      this.datateetime = datos;
+     
+   
+      console.log((this.datateetime));
     })
   }
 

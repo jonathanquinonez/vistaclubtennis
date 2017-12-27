@@ -21,25 +21,12 @@ export class RestTeetimeProvider {
 
   //apiUrlteetime = 'http://api.tennisgolfclub.com.co/public';
   
-
+/////// servicios de la pagina teetime
  public getTeetime() {
   return new Promise((resolve, reject) => {
-    //var headeres = new HttpHeaders();
-     // headeres.append('Content-Type', 'application/json; charset=utf-8');
      var cadena = localStorage.getItem('User');
-
- // headeres.append('Authorization', 'Bearer '+cadena.replace(/['"]+/g, ''));
   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-  //let headers = new Headers();
-  //headeres.append('Content-Type', 'application/x-www-form-urlencoded');
-  //headeres.append('Accept', 'application/json');
- // headeres.append('Authorization', 'Bearer ' + cadena);
- 
-// AppSettings.Api + 'personasinvitadasporsocios'
-  //let other_header = headeres;
- // console.log(other_header.get);
-  
-      this.http.get(AppSettings.Api + 'personasinvitadasporsocios', { headers: headeres })
+      this.http.get(AppSettings.Api + 'jugadoresxbloque/5', { headers: headeres })
         .subscribe(data => {
           resolve(data),
           console.log(data);
@@ -49,6 +36,41 @@ export class RestTeetimeProvider {
         });
   });
 }
+
+
+/////// servicios de la pagina jugadores
+public getTunosxdisciplina(fecha) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'turnosdisponibles/5/'+fecha, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+//// crear nueva reservacion de teetime
+
+public postTeetime(id_turno,fecha_hora_fin,fecha_hora_inicio) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:localStorage["correo_user"],fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
 
 
 }
