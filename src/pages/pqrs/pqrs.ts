@@ -8,25 +8,25 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms'
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
+ 
 @IonicPage()
 @Component({
   selector: 'page-pqrs',
   templateUrl: 'pqrs.html',
 })
 export class PqrsPage {
-  LoginForm:FormGroup;
+  LoginForm2:FormGroup;
 
   constructor(public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
-    this.LoginForm = formBuilder.group({
+    this.LoginForm2 = formBuilder.group({
       Descripcion:['',Validators.compose([Validators.required])],
       Nombre:['',Validators.compose([Validators.required])],
       Asunto:['',Validators.compose([Validators.required])]
     });
   }
 
-  Login(event){
-    if(!this.LoginForm.valid){
+  Login1(event){
+    if(!this.LoginForm2.valid){
               
              
            
@@ -45,7 +45,7 @@ export class PqrsPage {
           });
           
           alert1.present();
-          this.LoginForm.reset();
+          this.LoginForm2.reset();
           
         }
   }

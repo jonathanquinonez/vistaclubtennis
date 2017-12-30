@@ -45,12 +45,6 @@ login(credentials){
         );
    }
 });
-
-
-
-
- 
-
 }
 
 

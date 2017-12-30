@@ -27,7 +27,7 @@ export class TeetimePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     console.log( localStorage.getItem('User'))
     console.log( localStorage.getItem('Datos'))
-    this.getTeetime();
+    //this.getTeetime();
   }
 
   jugadores(){

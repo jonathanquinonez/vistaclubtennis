@@ -40,7 +40,7 @@ export class MyApp {
     public datos: any;
    @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = HomePage;
+  rootPage:any =MenuPage ;
 
 
   user: User;
@@ -98,8 +98,8 @@ export class MyApp {
         }
         else{
           
-          this.user = JSON.parse(localStorage["User"]);
-             AppSettings.datos = JSON.parse(localStorage["Datos"]);
+          this.user = (localStorage["User"]);
+            AppSettings.datos =JSON.parse(localStorage["Datos"]);
              
               this.nombre = AppSettings.datos.nombre;
               this.apellido = AppSettings.datos.apellido;
@@ -147,8 +147,8 @@ export class MyApp {
           //this.nav.setRoot(IntroductionPage);
         }
         else{
-          this.user = JSON.parse(localStorage["User"]);
-          AppSettings.datos = JSON.parse(localStorage["Datos"]);
+         this.user = JSON.parse(localStorage["User"]);
+          AppSettings.datos =JSON.parse(localStorage["Datos"]);
         console.log('despues de iniciar '+AppSettings.datos);
           this.nombre = AppSettings.datos.nombre;
           this.apellido = AppSettings.datos.apellido;
@@ -166,7 +166,7 @@ export class MyApp {
   }
   else{
     this.user = JSON.parse(localStorage["User"]);
-    AppSettings.datos = JSON.parse(localStorage["Datos"]);
+    AppSettings.datos = JSON.stringify(localStorage["Datos"]);
   console.log('despues de iniciar '+AppSettings.datos);
     this.nombre = AppSettings.datos.nombre;
     this.apellido = AppSettings.datos.apellido;
@@ -204,7 +204,7 @@ If the logout attribute is true .. we delete the user data from the phone  */
     if (localStorage["Datos"]){
 
          this.user = JSON.parse(localStorage["User"]);
-          AppSettings.datos = JSON.parse(localStorage["Datos"]);
+          AppSettings.datos = JSON.stringify(localStorage["Datos"]);
         console.log('dsiempre '+AppSettings.datos);
          this.nombre = AppSettings.datos.nombre;
          this.apellido = AppSettings.datos.apellido;

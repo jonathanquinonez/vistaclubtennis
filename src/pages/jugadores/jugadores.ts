@@ -17,9 +17,9 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
-  LoginForm1:FormGroup;
+ LoginForm1:FormGroup;
  turnosx: any = [];
- idturno;
+ idturno:any;
  fechaturno:Date;
  fechaseleccionada;
  grupo = {
@@ -30,9 +30,9 @@ export class JugadoresPage {
  }
  currentDatev1 = '2017-09-12';
  currentDatev2 = '2017-12-12';
- myDate;
+ myDate:any;
   constructor(public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
-    this.LoginForm1 = formBuilder.group({
+  this.LoginForm1 = formBuilder.group({
       jugador11:['',Validators.compose([Validators.required])],
       jugador22:['',Validators.compose([Validators.required])],
       jugador33:['',Validators.compose([Validators.required])],
@@ -56,7 +56,7 @@ export class JugadoresPage {
     
    
           }else{
-              this.reservarteetime();
+             this.reservarteetime();
 
               console.log(this.grupo.jugador1);
               console.log(this.grupo.jugador2);
@@ -67,15 +67,15 @@ export class JugadoresPage {
               console.log(this.currentDatev2);
               this.navCtrl.push(TeetimePage);
             } 
-   // 
+   
   }
  
   fecha1($event){
-   // this.myDate=this.fechaturno.toString;
+    this.myDate=this.fechaturno.toString;
    this.turnos();
     console.log(this.fechaturno);
   }
-  turnos(){
+ turnos(){
     this.restteetime.getTunosxdisciplina(this.fechaturno)
     .then(data => {
       this.turnosx = data;

@@ -60,7 +60,6 @@ import { RestPqrsProvider } from '../providers/rest-pqrs/rest-pqrs';
 import { RestPersonasautorizadasProvider } from '../providers/rest-personasautorizadas/rest-personasautorizadas';
 
 
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -154,8 +153,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     RestSpaProvider,
     RestNoticiasProvider,
     RestPqrsProvider,
-    RestPersonasautorizadasProvider ,
-    InAppBrowser,
+    RestPersonasautorizadasProvider 
   ]
 })
 export class AppModule {}

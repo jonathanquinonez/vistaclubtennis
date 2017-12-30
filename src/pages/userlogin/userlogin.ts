@@ -64,7 +64,7 @@ Login(event){
        // console.log(data['token']);
        localStorage["Datos"] = JSON.stringify(data['usuario']);
        localStorage["correo_user"] = JSON.stringify(this.credentials.correo_electronico);
-      // AppSettings.datos = localStorage["Datos"];
+       //AppSettings.datos = localStorage["Datos"];
         localStorage["User"] = JSON.stringify(data['token']);
         if(data.finished_registration){
           this.navCtrl.setRoot(MenuprincipalPage);
@@ -73,9 +73,9 @@ Login(event){
           this.navCtrl.setRoot(MenuprincipalPage);
         }
        
-        /*this.navCtrl.(TeetimePage,{
-          datatoke:data,
-        });*/
+        //this.navCtrl.(TeetimePage,{
+         // datatoke:data,
+       // });
       console.log(data);
       }, error =>{
     
@@ -98,11 +98,11 @@ Login(event){
                         });
                         alert.present();
                    }
-                  /*if(error.message.correo_electronico == null || error.message.correo_electronico == undefined){
-                        console.log(error);
-                   }else{
-                     console.log('hola');
-                   }*/
+                  //if(error.message.correo_electronico == null || error.message.correo_electronico == undefined){
+                   //     console.log(error);
+                  // }else{
+                    // console.log('hola');
+                   //}
   
   
 

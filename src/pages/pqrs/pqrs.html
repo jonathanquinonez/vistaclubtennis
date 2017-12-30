@@ -18,7 +18,7 @@
 
 <ion-content padding class="contenedor-principal">
   <h1 class="titulo">Formulario PQRS</h1>
-  <form [formGroup]="LoginForm">
+  <form [formGroup]="LoginForm2">
     <ion-list>
     <ion-item>
         <ion-label floating>Nombre Completo *</ion-label>
@@ -31,11 +31,11 @@
   </ion-item>
   <br>
       <ion-item>
-          <ion-textarea required COLS="20" ROWS="10" formControlName="Descripcion *" placeholder="Descripcion"></ion-textarea>
+          <ion-textarea required COLS="20" ROWS="10" formControlName="Descripcion" placeholder="Descripcion *"></ion-textarea>
         </ion-item>
       </ion-list>
   
-      <button (click)="Login($event)" class="botont center" ion-button icon-start>
+      <button (click)="Login1($event)" class="botont center" ion-button icon-start>
           <ion-icon name="md-send"></ion-icon>
          Enviar
       </button>
