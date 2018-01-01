@@ -59,6 +59,10 @@ import { RestNoticiasProvider } from '../providers/rest-noticias/rest-noticias';
 import { RestPqrsProvider } from '../providers/rest-pqrs/rest-pqrs';
 import { RestPersonasautorizadasProvider } from '../providers/rest-personasautorizadas/rest-personasautorizadas';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+///
+//import  { PipeModule }    from './tools/PipeModule';
 
 
 @NgModule({
@@ -153,7 +157,8 @@ import { RestPersonasautorizadasProvider } from '../providers/rest-personasautor
     RestSpaProvider,
     RestNoticiasProvider,
     RestPqrsProvider,
-    RestPersonasautorizadasProvider 
+    RestPersonasautorizadasProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

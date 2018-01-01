@@ -19,40 +19,33 @@
      <p> {{}}</p>
   </div>-->
 
-  <ion-grid>
+  <ion-grid *ngIf="datateetime.data && datateetime.data.length">
       <ion-row >
-        <ion-col col-12 >
-            <div class = "cuerpo-div"   no-padding style="border: 1px solid black;" >
+        <ion-col col-12>
+            <div class = "cuerpo-div"   no-padding style="border: 1px solid black;"  *ngFor="let teetime of datateetime.data" >
                 <div >
                <div class="titulo-div" >
-                 <div class="fecha">
-                     <p>09:30 am</p>
+                 <div class="fecha" >
+                    <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_inicio}}</p>
+                     
                  </div>
                  <div class="hora">
-                     <p>11:30 am</p>
+                   <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_fin}}</p>
+                    
                  </div>  
                </div>    
              
-               <div >
-                 <div class="nombres"style="text-align: center; font-size: 12px;" >
-                    <div class = "row responsive-sm" >
+               <div>
+                 <div class="nombres" style="text-align: center; font-size: 12px;"  >
+                    <div>
                   
-                        
-                                 <p>    Jonathan Alexander   </p>
-                                 
-                             
-                                  <p>  Carlos Suarez</p>
-                                  
+                                 <p *ngFor="let a of teetime"> {{ a.nombre}}</p>
                                
-                                 <p>   Marcel molina</p>
-                         
                     </div>
                  </div>
-                
                    <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
                        <ion-icon name="trash" class="icon-trash"></ion-icon>
                      </div>
-                    
                    </div>
                </div>
               </div>

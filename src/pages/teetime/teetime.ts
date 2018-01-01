@@ -21,13 +21,13 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
 })
 export class TeetimePage {
 
-  datateetime: any= [];
+  datateetime: any= Array();
   A: any= [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     console.log( localStorage.getItem('User'))
     console.log( localStorage.getItem('Datos'))
-    //this.getTeetime();
+    this.getTeetime();
   }
 
   jugadores(){
@@ -41,7 +41,7 @@ export class TeetimePage {
       this.datateetime = datos;
      
    
-      console.log((this.datateetime));
+      console.log((datos));
     })
   }
 

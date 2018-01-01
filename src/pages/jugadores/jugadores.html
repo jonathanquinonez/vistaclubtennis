@@ -79,14 +79,14 @@
                 <ion-label style="color:#000;">Fechas Disponibles</ion-label>
             <ion-select  [(ngModel)]="fechaseleccionada" multiple="false" cancelText="Cancelar" okText="Seleccionar!" ngDefaultControl>
                 
-                <ion-option  [(ngModel)]="idturno"  *ngFor="let users of turnosx.data" value="{{users.id}}"  ngDefaultControl>{{users.fecha_hora_inicio}} - {{users.fecha_hora_fin}}</ion-option>  
+                <ion-option  [(ngModel)]="idhoraseleccionada"  *ngFor="let users of turnosx.data" value="{{users.id}}" (click)="hora1()"  ngDefaultControl>{{users.fecha_hora_inicio}} - {{users.fecha_hora_fin}}</ion-option>  
             </ion-select>
             </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
           <ion-col col-12>
-              <button class="botont center22" (click)="reservar()">Reservar</button>
+              <button class="botont center22" (click)="reservar()">Reservar </button>
           </ion-col>
         </ion-row>
      

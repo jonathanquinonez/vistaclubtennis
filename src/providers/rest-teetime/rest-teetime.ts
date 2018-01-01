@@ -59,8 +59,27 @@ public getTunosxdisciplina(fecha) {
 public postTeetime(id_turno,fecha_hora_fin,fecha_hora_inicio) {
   return new Promise((resolve, reject) => {
      var cadena = localStorage.getItem('User');
+     var correo = localStorage.getItem("correo_user").replace(/['"]+/g, '');
   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-      this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:localStorage["correo_user"],fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
+      this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:correo,fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+//// crear jugadores para la reservacion teetime
+
+public postjugadores(id_bloque,jugadores) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+     
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.post(AppSettings.Api + 'jugadores',{id_bloques:id_bloque,nombre:jugadores}, { headers: headeres })
         .subscribe(data => {
           resolve(data),
           console.log(data);
