@@ -7,7 +7,7 @@
 <ion-header>
 
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -16,6 +16,36 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="contenedor-principal">
+    <div class="center">
+        
+    <img  class="avatar" (press)="presentActionSheet()" src={{usuario.imagen}} style="display: block; width: 50%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+  
+  <div style="height:20px"></div>
+
+ <ion-item class="iblack">
+      <ion-input type="text" placeholder="Nombres" [(ngModel)]="usuario.nombre" required>lnjnk</ion-input>
+    </ion-item>
+  
+       <div style="height:10px"></div>
+ <ion-item class="iblack">
+      <ion-input type="text" placeholder="Apellidos"  [(ngModel)]="usuario.apellido" required></ion-input>
+    </ion-item>
+<div style="height:10px"></div>
+  <ion-item class="iblack">
+      <ion-input type="email" placeholder="Correo electronico" [(ngModel)]="usuario.correo_electronico" required></ion-input>
+    </ion-item>
+    <div style="height:10px"></div>
+ <ion-item class="iblack">
+      <ion-input type="text" placeholder="Direccion"  [(ngModel)]="usuario.direccion" required></ion-input>
+    </ion-item>
+<div style="height:10px"></div>
+     
+ <ion-item class="iblack">
+      <ion-input type="text" placeholder="Telefono" [(ngModel)]="usuario.telefono" required></ion-input>
+    </ion-item>
+    <div style="height:10px"></div>
+  <button ion-button block round class="botont center"  style="font-family: MyriadProBold; width:80%;"   >Actualizar</button>
 
 </ion-content>
