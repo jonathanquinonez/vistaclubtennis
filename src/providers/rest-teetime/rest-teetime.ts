@@ -90,6 +90,22 @@ public postjugadores(id_bloque,jugadores) {
   });
 }
 
+//// eliminar por id de bloques
 
+public deletedbloque(id_bloque) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+     
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.delete(AppSettings.Api + 'bloques/'+id_bloque, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
 
 }

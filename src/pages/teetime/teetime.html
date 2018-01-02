@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar  hideBackButton="true">
-        
+        <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
      
      
@@ -44,7 +44,7 @@
                     </div>
                  </div>
                    <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-                       <ion-icon name="trash" class="icon-trash"></ion-icon>
+                       <ion-icon name="trash" class="icon-trash"*ngFor="let a of teetime | slice:0:1; let i=index" (click)="deletedbloque(a.id_bloques)"></ion-icon>
                      </div>
                    </div>
                </div>
@@ -54,7 +54,7 @@
      
       <ion-row>
         <ion-col col-12>
-            <button class="botont center22" (click)="jugadores()">Autorizar</button>
+            <button class="botont center22" (click)="jugadores()">Nueva Reservación</button>
         </ion-col>
       </ion-row>
     </ion-grid>

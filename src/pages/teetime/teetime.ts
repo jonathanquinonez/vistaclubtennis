@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,  AlertController, ViewController } from 'ionic-angular';
 import { JugadoresPage } from '../jugadores/jugadores';
 
 import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
@@ -20,11 +20,12 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
   templateUrl: 'teetime.html',
 })
 export class TeetimePage {
-
+state:any;
   datateetime: any= Array();
   A: any= [];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
+  testRadioOpen: boolean;
+  testRadioResult;
+  constructor( public ert: AlertController,public viewCtrl: ViewController ,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     console.log( localStorage.getItem('User'))
     console.log( localStorage.getItem('Datos'))
     this.getTeetime();
@@ -45,6 +46,36 @@ export class TeetimePage {
     })
   }
 
+    //// consulta todos los usuarios autorizados al teetime de ese usuario
+ deletedbloque(idbloque) {
+  let alert = this.ert.create();
+  alert.setTitle('Eliminar Reservación');
+
+  this.testRadioOpen = false;
+  alert.addButton('Cancelar');
+  alert.addButton({
+    text: 'Eliminar',
+    cssClass: 'eliminarbt',
+    handler: data => {
+
+      this.restteetime.deletedbloque(idbloque)
+      .then(datos => {
+        this.datateetime = datos;
+       
+     
+        console.log(datos);
+        console.log(idbloque);
+        this.getTeetime();
+      })
+
+      
+      
+      
+    }
+  });
+  alert.present();
+
+}
   
 
   ionViewDidLoad() {
