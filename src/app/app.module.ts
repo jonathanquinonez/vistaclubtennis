@@ -36,6 +36,7 @@ import { DetalledeportePage } from '../pages/detalledeporte/detalledeporte';
 import { PersonasautorizadasPage } from '../pages/personasautorizadas/personasautorizadas';
 import { MisinvitacionesPage } from '../pages/misinvitaciones/misinvitaciones';
 import { PagoHandicapPage } from '../pages/pago-handicap/pago-handicap';
+import { JugadoresTennisPage } from '../pages/jugadores-tennis/jugadores-tennis';
 
 
 //modales
@@ -96,7 +97,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     DetalledeportePage,
     PersonasautorizadasPage,
     MisinvitacionesPage,
-    PagoHandicapPage
+    PagoHandicapPage,
+    JugadoresTennisPage
   ],
   imports: [
     BrowserModule,
@@ -137,7 +139,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     DetalledeportePage,
     PersonasautorizadasPage,
     MisinvitacionesPage,
-    PagoHandicapPage
+    PagoHandicapPage,
+    JugadoresTennisPage
   ],
   providers: [
     StatusBar,

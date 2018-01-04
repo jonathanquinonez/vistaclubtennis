@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuPage } from '../menu/menu';
+
+import { JugadoresTennisPage } from '../jugadores-tennis/jugadores-tennis';
 import { RestReservacionesProvider } from '../../providers/rest-reservaciones/rest-reservaciones';
 
 /**
@@ -35,7 +36,7 @@ export class MisreservacionesPage {
 }
 
   menu(){
-    this.navCtrl.push(MenuPage);
+    this.navCtrl.push(JugadoresTennisPage);
    }
 
 
