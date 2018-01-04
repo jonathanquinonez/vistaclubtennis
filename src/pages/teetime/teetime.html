@@ -1,4 +1,4 @@
-<ion-header>
+<!--<ion-header>
     <ion-navbar  hideBackButton="true">
         <ion-title>Tennis Golf Club</ion-title>
      <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
@@ -13,11 +13,11 @@
     
     <h1 class="titulo">Mis Tee Times</h1>
   
-    <!-- <div class = "row responsive-sm"  *ngFor="let p0 of datateetime.data">
+     <div class = "row responsive-sm"  *ngFor="let p0 of datateetime.data">
       div posicionamiento 25 --> 
       <!-- div posicionamiento 25 *ngFor="let teetime of datateetime.data" *ngIf="teetime.data && datateetime.data.length"
      <p> {{}}</p>
-  </div>-->
+  </div>
 
   <ion-grid *ngIf="datateetime.data && datateetime.data.length">
       <ion-row >
@@ -52,12 +52,83 @@
         </ion-col>
       </ion-row>
      
-      <ion-row>
-        <ion-col col-12>
-            <button class="botont center22" (click)="jugadores()">Nueva Reservación</button>
-        </ion-col>
-      </ion-row>
+      
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+                <button class="botont center22" ng-model="button" [disabled]="buttonDisabled" (click)="jugadores()">Nueva Reservación</button>
+            </ion-col>
+          </ion-row>
     </ion-grid>
 
+  </ion-content>
+  -->
+  <!--
+  Generated template for the MisreservacionesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+      <ion-navbar  hideBackButton="true">
+          
+       <button ion-button menuToggle end><ion-icon name="menu"></ion-icon></button>
+       
+       
+       </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="contenedor-principal">
+  
+      <h1 class="titulo">Mis Reservaciones</h1>
+      
+       
+  
+      <ion-grid *ngIf="datateetime.data && datateetime.data.length">
+          <ion-row>
+            <ion-col col-12>
+                  <ion-card  *ngFor="let teetime of datateetime.data"  no-padding style="border: 1px solid black;">
+                          <ion-card-header style="border: 1px solid black;">
+                                  <div  >
+                                      <div class="fecha">
+                                              <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_inicio}}</p>
+                                      </div>
+                                      <div class="hora">
+                                              <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_fin}}</p>
+                                      </div>  
+                                  </div>  
+                          </ion-card-header>
+                          <ion-card-content>
+                           
+                                           <div >
+                                                  <div class="nombres" style="text-align: center; font-size: 12px;" >
+                                                  <p *ngFor="let a of teetime"> {{ a.nombre}}</p>
+                                                  
+                                                  </div>
+                                      
+                                                  <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
+                                                      <ion-icon name="trash" class="icon-trash" *ngFor="let a of teetime | slice:0:1; let i=index" (click)="deletedbloque(a.id_bloques)"></ion-icon>
+                                                  </div>
+                                             
+                                            </div>
+  
+                          </ion-card-content>
+                        </ion-card>     
+            </ion-col>
+          </ion-row>
+         
+         
+        </ion-grid>
+      <ion-grid>
+              <ion-row>
+                      <ion-col col-12>
+                          <button class="botont center22" (click)="jugadores()">Nueva invitación</button>
+                      </ion-col>
+              </ion-row>
+      </ion-grid>
   </ion-content>
   

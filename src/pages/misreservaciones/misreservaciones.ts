@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuPage } from '../menu/menu';
 import { RestReservacionesProvider } from '../../providers/rest-reservaciones/rest-reservaciones';
+
 /**
  * Generated class for the MisreservacionesPage page.
  *
@@ -17,21 +18,27 @@ import { RestReservacionesProvider } from '../../providers/rest-reservaciones/re
 export class MisreservacionesPage {
   datateetime:any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public restreservaciones:RestReservacionesProvider) {
-    this.getJugadores();
+    console.log( localStorage.getItem('User'))
+    console.log( localStorage.getItem('Datos'))
+    this.getTeetime();
   }
+
+  //// consulta todos los usuarios autorizados al teetime de ese usuario
+ getTeetime() {
+  this.restreservaciones.getTeetimetennis()
+  .then(datos => {
+    this.datateetime = datos;
+   
+ 
+    console.log((datos));
+  })
+}
 
   menu(){
     this.navCtrl.push(MenuPage);
    }
 
-   getJugadores() {
-    this.restreservaciones.getJugadores()
-    .then(data3 => {
-      this.datateetime = data3;
-    // this.datateetime.data = this.datateetime;
-      console.log("este es el usuario autorizado"+data3);
-    })
-  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MisreservacionesPage');

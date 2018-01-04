@@ -10,37 +10,102 @@ import {AppSettings} from '../../app/app.constants';
 @Injectable()
 export class RestReservacionesProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello RestReservacionesProvider Provider');
-  }
-
-  public getBloquesTennis() {
-    return new Promise((resolve, reject) => {
-       var cadena = localStorage.getItem('User');
-    const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-        this.http.get(AppSettings.Api + 'misreservaciones/7', { headers: headeres })
-          .subscribe(data => {
-            resolve(data),
-            console.log(data);
-          }, (err) => { 
-            console.log("Error occured"+err);
-          });
-    });
-  }
-
-  public getJugadores() {
-    return new Promise((resolve, reject) => {
-       var cadena = localStorage.getItem('User');
-    const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-        this.http.get(AppSettings.Api + 'jugadoresxbloque/5', { headers: headeres })
-          .subscribe(data => {
-            resolve(data),
-            console.log(data);
-          }, (err) => { 
-            console.log("Error occured"+err);
-          });
-    });
-  }
   
+
+  constructor(public http: HttpClient) {
+    console.log('Hello RestTeetimeProvider Provider');
+
+  localStorage.getItem('User');
+  localStorage.getItem('Datos');
+  }
+
+  //apiUrlteetime = 'http://api.tennisgolfclub.com.co/public';
+  
+/////// servicios de la pagina teetime
+ public getTeetimetennis() {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'jugadoresxbloque/7', { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+
+/////// servicios de la pagina jugadores
+public getTunosxdisciplina(fecha) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'turnosdisponibles/7/'+fecha, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+//// crear nueva reservacion de teetime
+
+public postTeetime(id_turno,fecha_hora_fin,fecha_hora_inicio) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+     var correo = localStorage.getItem("correo_user").replace(/['"]+/g, '');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:correo,fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+//// crear jugadores para la reservacion teetime
+
+public postjugadores(id_bloque,jugadores) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+     
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.post(AppSettings.Api + 'jugadores',{id_bloques:id_bloque,nombre:jugadores}, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+//// eliminar por id de bloques
+
+public deletedbloque(id_bloque) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+     
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.delete(AppSettings.Api + 'bloques/'+id_bloque, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
 
 }

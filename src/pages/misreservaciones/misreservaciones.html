@@ -22,67 +22,46 @@
     
      
 
-    <ion-grid>
+    <ion-grid *ngIf="datateetime.data && datateetime.data.length">
         <ion-row>
           <ion-col col-12>
-              <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
-                  
-                 <div class="titulo-div">
-                   <div class="fecha">
-                       <p>fecha</p>
-                   </div>
-                   <div class="hora">
-                       <p>hora</p>
-                   </div>  
-                 </div>    
-               
-                 <div >
-                   <div class="nombres" style="text-align: center; font-size: 12px;" >
-                     <p></p>
-                   </div>
-               
-                     <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-                         <ion-icon name="trash" class="icon-trash"></ion-icon>
-                      </div>
-                      
-                     </div>
-                 </div>
-            
+                <ion-card  *ngFor="let teetime of datateetime.data"  no-padding style="border: 1px solid black;">
+                        <ion-card-header style="border: 1px solid black;">
+                                <div  >
+                                    <div class="fecha">
+                                            <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_inicio}}</p>
+                                    </div>
+                                    <div class="hora">
+                                            <p *ngFor="let a of teetime | slice:0:1; let i=index">{{ a.fecha_hora_fin}}</p>
+                                    </div>  
+                                </div>  
+                        </ion-card-header>
+                        <ion-card-content>
+                         
+                                         <div >
+                                                <div class="nombres" style="text-align: center; font-size: 12px;" >
+                                                <p *ngFor="let a of teetime"> {{ a.nombre}}</p>
+                                                
+                                                </div>
+                                    
+                                                <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
+                                                    <ion-icon name="trash" class="icon-trash" *ngFor="let a of teetime | slice:0:1; let i=index" (click)="deletedbloque(a.id_bloques)"></ion-icon>
+                                                </div>
+                                           
+                                          </div>
+
+                        </ion-card-content>
+                      </ion-card>     
           </ion-col>
         </ion-row>
-        <ion-row>
-            <ion-col col-12>
-                <div class = "cuerpo-div"   no-padding style="border: 1px solid black;">
-                    
-                   <div class="titulo-div">
-                     <div class="fecha">
-                         <p>fecha</p>
-                     </div>
-                     <div class="hora">
-                         <p>hora</p>
-                     </div>  
-                   </div>    
-                 
-                   <div >
-                     <div class="nombres" style="text-align: center; font-size: 12px;">
-                       <p>Pedro Perez, Maria Juana, Jonathan Aexander, Juancho doleto</p>
-                     </div>
-                 
-                       <div style="text-align: center; font-size: 12px;" class="contenedor-trash"> 
-                           <ion-icon name="trash" class="icon-trash"></ion-icon>
-                        </div>
-                        
-                       </div>
-                   </div>
-              
-            </ion-col>
-          </ion-row>
        
-        <ion-row>
-            <ion-col col-12>
-                <button class="botont center22" (click)="menu()">Nueva invitación</button>
-            </ion-col>
-          </ion-row>
+       
       </ion-grid>
-
+    <ion-grid>
+            <ion-row>
+                    <ion-col col-12>
+                        <button class="botont center22" (click)="menu()">Nueva invitación</button>
+                    </ion-col>
+            </ion-row>
+    </ion-grid>
 </ion-content>

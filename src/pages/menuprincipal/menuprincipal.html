@@ -18,14 +18,14 @@
 
 <ion-content padding class="contenedor-principal">
 
-          <div style="height:40px;"></div>
+          <div style="height:10px;"></div>
           <img  src="assets/images/tennis/logo.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
 
        
         <ion-grid>
             <ion-row>
               <ion-col col-12>
-                  <div class = "row center2" style="width:70%">
+                  <div class = "row center2" style="width:60%">
                       <div   class = "col" ><img (click)="gastronomia()" src="assets/images/tennis/gastronomía.png"></div>
                       <div   class = "col" ><img (click)="instalaciones()" src="assets/images/tennis/instalaciones.png"></div>
                       </div>
@@ -33,7 +33,7 @@
             </ion-row>
             <ion-row>
                 <ion-col col-12>
-                    <div class = "row center2" style="width:70%">
+                    <div class = "row center2" style="width:60%">
                         
                                 <div   class = "col" ><img (click)="deportes()" src="assets/images/tennis/deportes.png"  ></div>
                                 <div   class = "col" ><img (click)="eventos()" src="assets/images/tennis/eventos.png"></div>
@@ -41,24 +41,29 @@
                                 </div>
                 </ion-col>
               </ion-row>
-             <!-- <ion-row>
+              <ion-row>
                   <ion-col col-12>
-                      <div class = "row center2" style="width:70%">
+                      <div class = "row center2" style="width:50%">
                           
                                   <div   class = "col" ><img  src="assets/images/tennis/teetime.png" width="90" height="85"   ></div>
                                   <div   class = "col" ><img (click)="noticias()" src="assets/images/tennis/news.png" width="90" height="85"></div>
                           
                                   </div>
                   </ion-col>
-                </ion-row>-->
-          
+                </ion-row>
+                <ion-row class="footer-background" (click)="menu2()">
+                   
+                        <ion-footer class="footer-background">
+                        <ion-title text-center  style="font-family: MyriadPro; font-size:0.5em ;"><p style="font-family: MyriadPro;color:#fff;; font-size:0.8em ;">Zona de Asociados</p></ion-title>
+                      </ion-footer>
+                      
+                    </ion-row>
            
           </ion-grid>
 
-          <div style="height:20px;"></div>
-          <ion-footer class="footer-background" (click)="menu2()">
+          
+          
   
-            <ion-title text-center  style="font-family: MyriadPro; font-size:0.5em ;"><p style="font-family: MyriadPro;color:#fff;; font-size:0.8em ;">Zona de Asociados</p></ion-title>
-  
-          </ion-footer>
+            
+         
 </ion-content>

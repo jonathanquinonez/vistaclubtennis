@@ -25,10 +25,16 @@ state:any;
   A: any= [];
   testRadioOpen: boolean;
   testRadioResult;
+  buttonDisabled:any;
+  myDate = '12:0:0';
+  myDate2 = new Date();
+
   constructor( public ert: AlertController,public viewCtrl: ViewController ,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
     console.log( localStorage.getItem('User'))
     console.log( localStorage.getItem('Datos'))
     this.getTeetime();
+    this.habilitar();
+    
   }
 
   jugadores(){
@@ -82,4 +88,33 @@ state:any;
     console.log('ionViewDidLoad TeetimePage');
   }
 
+//// habilitar boton de reservaciones - uno por dia
+
+habilitar(){
+  var f=new Date();
+  var cad=f.getHours()+":"+f.getMinutes()+":"+f.getSeconds(); 
+  //this.myDate.setHours(12, 0, 0);
+
+ console.log(this.myDate);
+ console.log(cad);
+
+if(cad == '3:50:0'){
+  this.buttonDisabled = false;
+  console.log('entro al false');
+  // return false;
+}else{
+  this.buttonDisabled = false;
+  console.log('entro al true');
+ // return true;
+}
+ 
+ 
+
+}
+ mostrarhora(){ 
+   
+ 
+
+   
+  }
 }

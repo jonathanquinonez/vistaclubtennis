@@ -36,7 +36,7 @@ export class MenuPage {
    teetime(){
     this.navCtrl.push(TeetimePage);
    }
-   misreservas(){
+   misreservaciones(){
     this.navCtrl.push(MisreservacionesPage);
    }
    jugadores(){

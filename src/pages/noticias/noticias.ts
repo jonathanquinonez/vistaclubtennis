@@ -20,42 +20,26 @@ export class NoticiasPage {
   iddetalle:any;
   items = [];
   constructor(public navCtrl: NavController, public navParams: NavParams, public restnoticiasprovider: RestNoticiasProvider) {
+    
     this.getGastronimia();
-    for (let i = 0; i < 30; i++) {
-      this.users.push( this.users.data );
-    }
-    console.log("mirar"+this.users.current_page);
+
+    
+    
   }
 
   getGastronimia() {
     this.restnoticiasprovider.getGastronomia()
     .then(data => {
       this.users = data;
-     
+     // this.users.$broadcast('scroll.infiniteScrollComplete');
       console.log(this.users);
     })
+    
   }
 
-
-  
-   
-  
-    doInfinite(infiniteScroll) {
-      console.log('Begin async operation');
-  
-      setTimeout(() => {
-        for (let i = 0; i < 30; i++) {
-          this.items.push( this.items.length );
-        }
-  
-        console.log('Async operation has ended');
-        infiniteScroll.complete();
-      }, 500);
-    }
-  
-
-
-
+  /**
+ * Created by singhdi on 2014-07-26.
+ */
 
 
 

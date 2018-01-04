@@ -40,7 +40,7 @@ export class MyApp {
     public datos: any;
    @ViewChild(Nav) nav: Nav;
 
-  rootPage:any =MenuPage ;
+  rootPage:any = MenuprincipalPage ;
 
 
   user: User;
