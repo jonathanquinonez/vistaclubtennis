@@ -108,4 +108,22 @@ public deletedbloque(id_bloque) {
   });
 }
 
+//// consultar turnos por id - para obtener las horas y enviarlas a la reserva
+/////// servicios de la pagina teetime
+public getTurno(idturno) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'turnos/'+idturno, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
+
 }

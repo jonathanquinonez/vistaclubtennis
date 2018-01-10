@@ -27,6 +27,12 @@ export class JugadoresTennisPage {
    idturno:any=[];
    public reseva:any=[];
     public  reseva1:any={};
+    public AppSettings:any=[];
+ 
+    public nombre : any;
+    public apellido : any;
+   // variable que contendrea la hora de cada turno
+ public horadeturno:any=[];
   fechaturno:Date;
   fechaseleccionada;
   grupo2 = {
@@ -47,6 +53,12 @@ export class JugadoresTennisPage {
        
      });
  
+     this.AppSettings.datos =JSON.parse(localStorage["Datos"]);
+     
+      this.nombre = this.AppSettings.datos.nombre;
+      this.apellido = this.AppSettings.datos.apellido;
+      
+
    }
    reservar(){
     if(!this.LoginForm2.valid){
@@ -65,7 +77,7 @@ export class JugadoresTennisPage {
            }else{
              
              this.jugadorearray();
-              this.reservarteetime();
+             
               
  
                console.log(this.grupo2.jugador1);
@@ -88,7 +100,10 @@ export class JugadoresTennisPage {
      this.jugadoresarray["jugador1"]= this.grupo2.jugador1;
      this.jugadoresarray["jugador2"]= this.grupo2.jugador2;
      this.jugadoresarray["jugador3"]= this.grupo2.jugador3;
-     this.jugadoresarray["jugador4"]= this.grupo2.jugador4;
+     this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
+     
+
+     this.reservarteetime();
    }
   
    fecha1($event){
@@ -130,19 +145,32 @@ export class JugadoresTennisPage {
        this.navCtrl.push(MisreservacionesPage);
    }
  
- 
    reservarteetime(){
-     this.restteetime.postTeetime(this.fechaseleccionada,this.currentDatev1,this.currentDatev2)
-     .then(data => {
-       this.reseva = data; /// contiene el bloque creado, de aqui 
-       ////sacamos el id, para agrupar los jugadores
-     //  this.idturno = this.reseva;
-     this.reseva =  this.reseva.data;
-       console.log(this.reseva);
-       this.jugadores4();
-     })
-     
-   }
+    
+    //console.log("hoa inicio:"+this.horadeturno.fecha_hora_inicio+"horas fin: " +this.horadeturno.fecha_hora_fin);
+    this.restteetime.getTurno(this.fechaseleccionada)
+    .then(data => {
+      this.horadeturno = data; 
+      this.horadeturno = this.horadeturno.data; 
+    console.log("entro a gettturnoid");
+    console.log(this.horadeturno);
+
+    this.restteetime.postTeetime(this.fechaseleccionada,this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin)
+    .then(data => {
+      this.reseva = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
+      ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
+    //  this.idturno = this.reseva;
+    this.reseva =  this.reseva.data;
+      console.log(this.reseva);
+      this.jugadores4();
+    })
+      
+    })
+
+    
+    
+  }
+ 
  
    ionViewDidLoad() {
      console.log('ionViewDidLoad JugadoresPage');
