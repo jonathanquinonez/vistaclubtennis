@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ViewController  } from 'ionic-angular';
 
 import { JugadoresTennisPage } from '../jugadores-tennis/jugadores-tennis';
 import { RestReservacionesProvider } from '../../providers/rest-reservaciones/rest-reservaciones';
@@ -18,7 +18,10 @@ import { RestReservacionesProvider } from '../../providers/rest-reservaciones/re
 })
 export class MisreservacionesPage {
   datateetime:any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restreservaciones:RestReservacionesProvider) {
+  testRadioOpen: boolean;
+  testRadioResult;
+  buttonDisabled:any;
+  constructor( public ert: AlertController,public viewCtrl: ViewController,public navCtrl: NavController, public navParams: NavParams, public restreservaciones:RestReservacionesProvider) {
     console.log( localStorage.getItem('User'))
     console.log( localStorage.getItem('Datos'))
     this.getTeetime();
@@ -33,6 +36,35 @@ export class MisreservacionesPage {
  
     console.log((datos));
   })
+}
+deletedbloque(idbloque) {
+  let alert = this.ert.create();
+  alert.setTitle('Eliminar Reservación');
+
+  this.testRadioOpen = false;
+  alert.addButton('Cancelar');
+  alert.addButton({
+    text: 'Eliminar',
+    cssClass: 'eliminarbt',
+    handler: data => {
+
+      this.restreservaciones.deletedbloque(idbloque)
+      .then(datos => {
+        this.datateetime = datos;
+       
+     
+        console.log(datos);
+        console.log(idbloque);
+        this.getTeetime();
+      })
+
+      
+      
+      
+    }
+  });
+  alert.present();
+
 }
 
   menu(){
