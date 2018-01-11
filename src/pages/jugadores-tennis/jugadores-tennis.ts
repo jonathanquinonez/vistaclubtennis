@@ -25,6 +25,7 @@ export class JugadoresTennisPage {
   valornombrejugador:any;  // valor que se envia al metodo que crea los jugadores
   datajugadores: any= [];
    idturno:any=[];
+   estadoturno:any=[];
    public reseva:any=[];
     public  reseva1:any={};
     public AppSettings:any=[];
@@ -48,8 +49,8 @@ export class JugadoresTennisPage {
    this.LoginForm2 = formBuilder.group({
        jugador11:['',Validators.compose([Validators.required])],
        jugador22:['',Validators.compose([Validators.required])],
-       jugador33:['',Validators.compose([Validators.required])],
-       jugador44:['',Validators.compose([Validators.required])]
+       jugador33:['',Validators.compose([Validators.required])]
+       
        
      });
  
@@ -106,11 +107,12 @@ export class JugadoresTennisPage {
      this.reservarteetime();
    }
   
-   fecha1($event){
-     this.myDate=this.fechaturno.toString;
-    this.turnos();
-     console.log(this.fechaturno);
-   }
+   fecha1(fechaturno){
+    
+      this.fechaturno = fechaturno;
+     this.turnos();
+      console.log(this.fechaturno+ "fecha seleccionada, variable fechaturno");
+    }
    hora1(){
      this.idhoraseleccionada;
     //this.turnos();
@@ -141,8 +143,16 @@ export class JugadoresTennisPage {
          console.log(this.datajugadores);
        }) 
      }  
-       
+     this.restteetime.getTurnoestado(this.fechaseleccionada)
+     .then(data => {
+       this.estadoturno = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
+       ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
+     //  this.idturno = this.reseva;
+     this.estadoturno =  this.estadoturno.data;
+       console.log(this.estadoturno+"id de turno");
        this.navCtrl.push(MisreservacionesPage);
+     })
+       
    }
  
    reservarteetime(){

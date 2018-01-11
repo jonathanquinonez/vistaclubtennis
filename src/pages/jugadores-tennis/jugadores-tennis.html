@@ -37,13 +37,8 @@
               <ion-input class="nombreapellido" formControlName="jugador33" [(ngModel)]="grupo2.jugador3" type="text" placeholder="Nombre y Apellidos (*)"
                 required></ion-input>
             </ion-item>
-            <br>
-            <ion-item>
-              <ion-icon name="md-contact" item-start></ion-icon>
-              <ion-input class="nombreapellido" formControlName="jugador44" [(ngModel)]="grupo2.jugador4" type="text" placeholder="Nombre y Apellidos (*)"
-                required></ion-input>
-            </ion-item>
-
+          
+            
           </ion-list>
         </form>
       </ion-col>
@@ -54,8 +49,8 @@
         <ion-item>
           <ion-icon name="md-calendar" item-start></ion-icon>
 
-          <ion-input (input)='fecha1($event)' [(ngModel)]="fechaturno" type="date" ngDefaultControl></ion-input>
-
+          <ion-datetime  (ionChange)="fecha1(fechaturno)"  [(ngModel)]="fechaturno"  displayFormat="DD/MM/YYYY" min="2016" ngDefaultControl></ion-datetime>
+          
         </ion-item>
 
       </ion-col>

@@ -20,7 +20,7 @@ import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
 export class JugadoresPage {
  LoginForm1:FormGroup;
  turnosx: any = [];
-
+ estadoturno:any=[];
  public nombre : any;
  public apellido : any;
 
@@ -84,7 +84,7 @@ public horadeturno:any=[];
               console.log(this.grupo.jugador2);
               console.log(this.grupo.jugador3);
               console.log(this.grupo.jugador4);
-            console.log(this.fechaseleccionada);
+            console.log(this.fechaseleccionada +" id turno");
             console.log("aquiiii");
               console.log(this.reseva);
              // console.log(this.currentDatev2);
@@ -103,9 +103,9 @@ public horadeturno:any=[];
     this.reservarteetime();
   }
  
-  fecha1($event){
+  fecha1(fechaturno){
   
-    this.myDate=this.fechaturno.toString;
+    this.fechaturno = fechaturno;
    this.turnos();
     console.log(this.fechaturno+ "fecha seleccionada, variable fechaturno");
   }
@@ -140,7 +140,16 @@ public horadeturno:any=[];
       }) 
     }  
       
-      this.navCtrl.push(TeetimePage);
+      this.restteetime.getTurnoestado(this.fechaseleccionada)
+      .then(data => {
+        this.estadoturno = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
+        ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
+      //  this.idturno = this.reseva;
+      this.estadoturno =  this.estadoturno.data;
+        console.log(this.estadoturno+"id de turno");
+        this.navCtrl.push(TeetimePage);
+      })
+      
   }
 
 
@@ -156,8 +165,8 @@ public horadeturno:any=[];
 
     this.restteetime.postTeetime(this.fechaseleccionada,this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin)
     .then(data => {
-      this.reseva = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
-      ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
+      this.reseva = data; /// contiene el bloque creado, de aqui 
+      ////sacamos el id, para agrupar los jugadores
     //  this.idturno = this.reseva;
     this.reseva =  this.reseva.data;
       console.log(this.reseva);

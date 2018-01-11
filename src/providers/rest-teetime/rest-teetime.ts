@@ -127,4 +127,19 @@ public getTurno(idturno) {
   });
 }
 
+// actualizar estado de turno seleccionado - estado apsa a 1 - recibe un id de turno
+public getTurnoestado(idturno) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'estadoturno/'+idturno, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
 }

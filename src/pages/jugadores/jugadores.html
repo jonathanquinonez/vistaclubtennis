@@ -62,7 +62,7 @@
               <ion-item>
             <ion-icon  name="md-calendar" item-start></ion-icon>
          
-            <ion-input  (input)='fecha1($event)' [(ngModel)]="fechaturno"  type="date" ngDefaultControl></ion-input>
+            <ion-datetime  (ionChange)="fecha1(fechaturno)"  [(ngModel)]="fechaturno"  displayFormat="DD/MM/YYYY" min="2016" ngDefaultControl></ion-datetime>
            
           </ion-item>
       
