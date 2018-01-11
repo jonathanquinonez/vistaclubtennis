@@ -34,9 +34,16 @@ state:any;
     console.log( localStorage.getItem('Datos'))
     this.getTeetime();
     this.habilitar();
+    this.datatamaño();
     
   }
-
+  datatamaño(){
+     if(this.datateetime.length ==0){
+       return true;
+     }else{
+       return false;
+     }
+  }
   jugadores(){
     this.navCtrl.push(JugadoresPage);
   }
@@ -111,10 +118,5 @@ if(cad == '3:50:0'){
  
 
 }
- mostrarhora(){ 
-   
- 
 
-   
-  }
 }
