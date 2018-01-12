@@ -20,18 +20,14 @@
   <h1 class="titulo">Formulario PQRS</h1>
   <form [formGroup]="LoginForm2">
     <ion-list>
-    <ion-item>
-        <ion-label floating>Nombre Completo *</ion-label>
-        <ion-input type="text" formControlName="Nombre" required></ion-input>
-      </ion-item>
-<br>
+    
 <ion-item>
     <ion-label floating>Asunto *</ion-label>
-    <ion-input type="text" required formControlName="Asunto"></ion-input>
+    <ion-input type="text" required formControlName="Asunto" [(ngModel)]="credentials.asunto" ></ion-input>
   </ion-item>
   <br>
       <ion-item>
-          <ion-textarea required COLS="20" ROWS="10" formControlName="Descripcion" placeholder="Descripcion *"></ion-textarea>
+          <ion-textarea required COLS="20" ROWS="10" formControlName="Descripcion" [(ngModel)]="credentials.descripcion" placeholder="Descripcion *"></ion-textarea>
         </ion-item>
       </ion-list>
   

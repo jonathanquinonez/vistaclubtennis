@@ -15,19 +15,19 @@
     
     </ion-header>
   
-
+ 
 
 <ion-content padding class="contenedor-principal">
     
-        <h1 class="titulo">Mis Afiliados</h1>
+        <h1 class="titulo">Mis Afiliados - </h1>
         <ion-list>
             
           <div *ngFor="let item2 of personas.data">
             <div  *ngIf="(item2.estado == 1)">
             <ion-item class="item-margin">
-              <p style="color:black;">{{item2.nombre_completo}}</p>
-              <p>{{item2.identificacion}}</p>
-              <ion-icon class="md-trash" name="md-trash" item-end></ion-icon>
+              <p style="color:black; font-weight: bold;">{{item2.nombre_completo}}</p>
+              <p style="color:black; font-weight: bold;">{{item2.identificacion}}</p>
+             <!-- <ion-icon class="md-trash" name="md-trash" item-end></ion-icon>-->
             </ion-item>  
           </div>
         </div>

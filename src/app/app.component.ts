@@ -78,11 +78,11 @@ export class MyApp {
         this.pages = [
           { title: 'Inicio',icon:'home', component: MenuprincipalPage, logout : false },
           { title: 'Perfil de Usuario',icon:'md-person', component: ProfilePage , logout : false },
-           { title: 'Tee-Time',icon:'md-cog', component: TeetimePage , logout : false },
             { title: 'Instalaciones',icon:'logo-codepen', component: InstalacionesPage , logout : false },
             { title: 'Eventos',icon:'ios-color-filter', component: EventosPage , logout : false },
             { title: 'Deportes',icon:'md-baseball', component: DeportesPage , logout : false },
             { title: 'Restaurant',icon:'md-restaurant', component: GastronomiaPage , logout : false },
+            { title: 'Zona-Socios',icon:'md-cog', component: MenuPage , logout : false },
             { title: 'Paga en Linea',icon:'md-card', component: PagoHandicapPage , logout : false },
             { title: 'Pqrs',icon:'md-mail', component: PqrsPage , logout : false },
           { title: 'Logout',icon:'md-log-out', component: UserloginPage , logout : true }

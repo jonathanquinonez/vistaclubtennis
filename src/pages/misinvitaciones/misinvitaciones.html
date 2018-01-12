@@ -22,13 +22,13 @@
         <h1 class="titulo">Mis Invitaciones</h1>
 
         <ion-list>
-          <span>Invitaciones pendientes por autorizar</span>
+          <span></span>
           <div *ngFor="let item2 of personas.data">
             <div  *ngIf="(item2.estado == 0)">
             <ion-item class="item-margin">
-              <p style="color:black;">{{item2.nombre_completo}}</p>
-              <p>{{item2.identificacion}}</p>
-              <ion-icon class="md-trash" name="md-trash" item-end></ion-icon>
+              <p style="color:black; font-weight: bold;">{{item2.nombre_completo}}</p>
+              <p style="color:black; font-weight: bold;">{{item2.identificacion}}</p>
+              <ion-icon class="md-trash" name="md-trash"  (click)="deletedbloque(item2.id)" item-end></ion-icon>
             </ion-item>  
           </div>
         </div>
@@ -39,7 +39,20 @@
           <ion-row>
             <ion-col col-12><button class="botont center22 col-12 col-sm" (click)="showRadio()">Nueva invitación</button></ion-col>
           </ion-row>
+         
           
+        </ion-grid>
+        <ion-grid>
+        <ion-row  >
+            <ion-col col-12>
+        
+                <div *ngFor="let i of idinvitado.data"> 
+                   
+                    
+                      <label  id="{{idinvitado1}}"  >{{i.id}}</label>
+                  </div>
+            </ion-col>
+          </ion-row>
         </ion-grid>
 </ion-content>
           
