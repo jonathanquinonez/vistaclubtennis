@@ -1,4 +1,5 @@
-
+import { IonicPage, NavController, NavParams, LoadingController, AlertController,ToastController  } from 'ionic-angular';
+import { UserloginPage } from '../../pages/userlogin/userlogin';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AppSettings} from '../../app/app.constants';
@@ -14,9 +15,7 @@ import {AppSettings} from '../../app/app.constants';
 */
 @Injectable()
 export class UsersProvider {
-  
-  
-
+  public navCtrl: NavController
 login(credentials){
 
 
@@ -40,6 +39,7 @@ login(credentials){
             console.log(data);
           },
           err => {
+            this.navCtrl.setRoot(UserloginPage);
             console.log("Error occured"+credentials.correo_electronico+credentials.password);
           }
         );

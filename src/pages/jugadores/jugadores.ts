@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,  AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,  AlertController, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 //import { UsersProvider } from '../providers/users/users';
 
@@ -47,7 +47,7 @@ public horadeturno:any=[];
  currentDatev1 = '11:11:11';
  currentDatev2 = '22:22:22';
  myDate:any;
-  constructor(public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
+  constructor(private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
   this.LoginForm1 = formBuilder.group({
       jugador11:['',Validators.compose([Validators.required])],
       jugador22:['',Validators.compose([Validators.required])],
@@ -100,6 +100,12 @@ public horadeturno:any=[];
     this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
     //this.nombre = this.AppSettings.datos.nombre;
     //this.apellido = this.AppSettings.datos.apellido;
+    let loader = this.loadingController.create({
+      content: 'Creando Reservacion...',
+      duration:5000
+    });
+
+    loader.present();
     this.reservarteetime();
   }
  
@@ -142,6 +148,16 @@ public horadeturno:any=[];
       
       this.restteetime.getTurnoestado(this.fechaseleccionada)
       .then(data => {
+        if(data == null){
+          
+                  let alert = this.alertController.create({
+                    title:' Tennis Golf  Club', 
+                    subTitle:"Fallo al crear la reservación",
+                    buttons:['OK']
+                  });
+                  alert.present();
+                 return;
+                }
         this.estadoturno = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
         ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
       //  this.idturno = this.reseva;

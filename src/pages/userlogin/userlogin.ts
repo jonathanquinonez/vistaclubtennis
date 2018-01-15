@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController,ToastController  } from 'ionic-angular';
 import { MenuprincipalPage } from '../menuprincipal/menuprincipal';
-import { TeetimePage } from '../teetime/teetime';
 
+import { TeetimePage } from '../teetime/teetime';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms'
 import { User } from '../../classes/User'
 
@@ -33,6 +34,9 @@ export class UserloginPage {
       Email:['',Validators.compose([Validators.maxLength(45),Validators.pattern('[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}'),Validators.required])],
       Password:['',Validators.compose([Validators.required])]
     });
+    //console.log(this.screenOrientation.type);
+  //  this.screenOrientation.unlock();
+  //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 }
 
 Login(event){

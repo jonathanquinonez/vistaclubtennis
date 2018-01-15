@@ -39,11 +39,13 @@ export class RestReservacionesProvider {
 
 
 /////// servicios de la pagina jugadores
-public getTunosxdisciplina(fecha) {
+public getTunosxdisciplina(fecha,id_cancha) {
+
+  console.log("entro get turnos "+fecha+" id "+id_cancha)
   return new Promise((resolve, reject) => {
      var cadena = localStorage.getItem('User');
   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-      this.http.get(AppSettings.Api + 'turnosdisponibles/7/'+fecha, { headers: headeres })
+      this.http.get(AppSettings.Api + 'turnosdisponibles/'+id_cancha+"/"+fecha, { headers: headeres })
         .subscribe(data => {
           resolve(data),
           console.log(data);
@@ -57,19 +59,24 @@ public getTunosxdisciplina(fecha) {
 //// crear nueva reservacion de teetime
 
 public postTeetime(id_turno,fecha_hora_fin,fecha_hora_inicio) {
-  return new Promise((resolve, reject) => {
-     var cadena = localStorage.getItem('User');
-     var correo = localStorage.getItem("correo_user").replace(/['"]+/g, '');
-  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-      this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:correo,fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
-        .subscribe(data => {
-          resolve(data),
-          console.log(data);
-        }, (err) => {
-          
-          console.log("Error occured"+err);
-        });
-  });
+  if(id_turno != null){
+    return new Promise((resolve, reject) => {
+      var cadena = localStorage.getItem('User');
+      var correo = localStorage.getItem("correo_user").replace(/['"]+/g, '');
+   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+       this.http.post(AppSettings.Api + 'bloques',{id_turnos:id_turno,correo_electronico_socio:correo,fecha_hora_inicio:fecha_hora_inicio,fecha_hora_fin:fecha_hora_fin}, { headers: headeres })
+         .subscribe(data => {
+           resolve(data),
+           console.log(data);
+         }, (err) => {
+           
+           console.log("Error occured"+err);
+         });
+   });
+  }else{
+     
+  }
+  
 }
 
 //// crear jugadores para la reservacion teetime
@@ -141,5 +148,21 @@ public getTurnoestado(idturno) {
         });
   });
 }
+
+public getcanchastennis() {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'canchas', { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
 
 }

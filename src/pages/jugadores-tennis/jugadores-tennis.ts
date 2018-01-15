@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,  AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,  AlertController, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
@@ -18,6 +18,11 @@ import { RestReservacionesProvider } from '../../providers/rest-reservaciones/re
 })
 export class JugadoresTennisPage {
 
+
+
+public canchas1:any=[];
+public id_canchas:any;
+
   LoginForm2:FormGroup;
   turnosx: any = [];
   idhoraseleccionada:any;
@@ -29,7 +34,7 @@ export class JugadoresTennisPage {
    public reseva:any=[];
     public  reseva1:any={};
     public AppSettings:any=[];
- 
+ fecharespaldo:any;
     public nombre : any;
     public apellido : any;
    // variable que contendrea la hora de cada turno
@@ -45,7 +50,7 @@ export class JugadoresTennisPage {
   currentDatev1 = '2017-09-12';
   currentDatev2 = '2017-12-12';
   myDate:any;
-   constructor(public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestReservacionesProvider) {
+   constructor(private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestReservacionesProvider) {
    this.LoginForm2 = formBuilder.group({
        jugador11:['',Validators.compose([Validators.required])],
        jugador22:['',Validators.compose([Validators.required])],
@@ -58,7 +63,7 @@ export class JugadoresTennisPage {
      
       this.nombre = this.AppSettings.datos.nombre;
       this.apellido = this.AppSettings.datos.apellido;
-      
+      this.canchas();
 
    }
    reservar(){
@@ -102,7 +107,12 @@ export class JugadoresTennisPage {
      this.jugadoresarray["jugador2"]= this.grupo2.jugador2;
      this.jugadoresarray["jugador3"]= this.grupo2.jugador3;
      this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
-     
+     let loader = this.loadingController.create({
+      content: 'Creando Reservacion...',
+      duration:5000
+    });
+
+    loader.present();
 
      this.reservarteetime();
    }
@@ -110,25 +120,67 @@ export class JugadoresTennisPage {
    fecha1(fechaturno){
     
       this.fechaturno = fechaturno;
-     this.turnos();
-      console.log(this.fechaturno+ "fecha seleccionada, variable fechaturno");
+      this.fecharespaldo=fechaturno
+     
+    // this.canchas();
+      console.log(this.fechaturno+ "fecha seleccionada, variable fechaturno"+"id cancha"+this.id_canchas);
+      this.turnos(this.fechaturno,this.id_canchas);
     }
    hora1(){
      this.idhoraseleccionada;
-    //this.turnos();
+
+     
     console.log("entro a la hora");
      console.log(this.idhoraseleccionada);
    }
- 
- 
-  turnos(){
-     this.restteetime.getTunosxdisciplina(this.fechaturno)
+
+   cancha(id_canchas){
+   //this.id_canchas;
+    this.id_canchas=id_canchas;
+    //this.canchas();
+   console.log("entro a mirar el id cancha"+this.id_canchas+"fecha"+this.fechaturno);
+   //this.turnos2(id_canchas)
+   this.turnos(this.fechaturno,this.id_canchas);
+   
+  }
+ //// todas las canchas de tennis
+   canchas(){
+    this.restteetime.getcanchastennis()
+    .then(data => {
+      this.canchas1 = data;
+     
+      console.log(this.canchas1);
+    }, (err) => {
+     
+     console.log("fallo al reservar2"+err);
+   })
+  } 
+
+
+  turnos(fechaturno,id_canchas){
+     this.restteetime.getTunosxdisciplina(fechaturno,id_canchas)
      .then(data => {
        this.turnosx = data;
       
        console.log(this.turnosx);
-     })
+     }, (err) => {
+      
+      console.log("fallo al reservar2"+err);
+    })
    }
+   /*turnos2(id_canchas){
+    console.log(this.fecharespaldo);
+    this.restteetime.getTunosxdisciplina(this.fecharespaldo,id_canchas)
+    .then(data => {
+      this.turnosx = data;
+     
+      console.log(this.turnosx);
+     
+    }, (err) => {
+     
+     console.log("fallo al reservar2"+err);
+   })
+  }*/
    /// se crean los jugadores
   jugadores4(){
    console.log("entro a jugadores4");
@@ -141,7 +193,10 @@ export class JugadoresTennisPage {
          this.datajugadores = data;
         
          console.log(this.datajugadores);
-       }) 
+       }, (err) => {
+        
+        console.log("fallo al reservar2"+err);
+      }) 
      }  
      this.restteetime.getTurnoestado(this.fechaseleccionada)
      .then(data => {
@@ -151,7 +206,10 @@ export class JugadoresTennisPage {
      this.estadoturno =  this.estadoturno.data;
        console.log(this.estadoturno+"id de turno");
        this.navCtrl.push(MisreservacionesPage);
-     })
+     }, (err) => {
+      
+      console.log("fallo al reservar2"+err);
+    })
        
    }
  
@@ -164,17 +222,33 @@ export class JugadoresTennisPage {
       this.horadeturno = this.horadeturno.data; 
     console.log("entro a gettturnoid");
     console.log(this.horadeturno);
-
+    
     this.restteetime.postTeetime(this.fechaseleccionada,this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin)
     .then(data => {
+      if(data == null){
+
+        let alert = this.alertController.create({
+          title:' Tennis Golf  Club', 
+          subTitle:"Fallo al crear la reservación",
+          buttons:['OK']
+        });
+        alert.present();
+       return;
+      }
       this.reseva = data; /// contiene el bloque creado, de aqui  this.horadeturno.fecha_hora_inicio,this.horadeturno.fecha_hora_fin
       ////sacamos el id, para agrupar los jugadores this.currentDatev1,this.currentDatev1
     //  this.idturno = this.reseva;
     this.reseva =  this.reseva.data;
       console.log(this.reseva);
       this.jugadores4();
+    }, (err) => {
+      
+      console.log("fallo al reservar1"+err);
     })
       
+    }, (err) => {
+      
+      console.log("fallo al reservar2"+err);
     })
 
     

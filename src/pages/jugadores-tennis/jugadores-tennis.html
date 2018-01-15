@@ -45,6 +45,17 @@
     </ion-row>
     <ion-row>
       <ion-col col-12>
+        <ion-item>
+          <ion-label style="color:#000;">Canchas de Tennis</ion-label>
+          <ion-select [(ngModel)]="id_canchas" multiple="false" cancelText="Cancelar" okText="Seleccionar!" (ionChange)="cancha($event)"  ngDefaultControl>
+
+            <ion-option *ngFor="let users of canchas1.data" value="{{users.id}}"   ngDefaultControl>{{users.descripcion}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
 
         <ion-item>
           <ion-icon name="md-calendar" item-start></ion-icon>
@@ -61,7 +72,7 @@
           <ion-label style="color:#000;">Fechas Disponibles</ion-label>
           <ion-select [(ngModel)]="fechaseleccionada" multiple="false" cancelText="Cancelar" okText="Seleccionar!" ngDefaultControl>
 
-            <ion-option [(ngModel)]="idhoraseleccionada" *ngFor="let users of turnosx.data" value="{{users.id}}" (click)="hora1()" ngDefaultControl>{{users.fecha_hora_inicio}} - {{users.fecha_hora_fin}}</ion-option>
+            <ion-option [(ngModel)]="idhoraseleccionada" *ngFor="let users2 of turnosx.data" value="{{users2.id}}" (click)="hora1()" ngDefaultControl>{{users2.fecha_hora_inicio}} - {{users2.fecha_hora_fin}}</ion-option>
           </ion-select>
         </ion-item>
       </ion-col>
