@@ -25,6 +25,7 @@ import { ZonarecreativaPage } from '../pages/zonarecreativa/zonarecreativa';
 import { PqrsPage } from '../pages/pqrs/pqrs';
 import { PagoHandicapPage } from '../pages/pago-handicap/pago-handicap';
 
+
 import { UsersProvider } from '../providers/users/users';
 
 import {AppSettings} from '../app/app.constants';
@@ -48,11 +49,13 @@ export class MyApp {
   public da : any;
   public nombre : any;
   public apellido : any;
-  public puntos : any;
+  
   public imagen : any;
+  public logeado :any;
 
 
   pages: Array<{title: string,icon:string, component: any,logout :boolean}>;
+  pagest: Array<{title: string,icon:string, component: any,logout :boolean}>;
   constructor(public platform: Platform, 
     public statusBar: StatusBar,
     public splashScreen: SplashScreen, 
@@ -85,9 +88,19 @@ export class MyApp {
             { title: 'Zona-Socios',icon:'md-cog', component: MenuPage , logout : false },
             { title: 'Paga en Linea',icon:'md-card', component: PagoHandicapPage , logout : false },
             { title: 'Pqrs',icon:'md-mail', component: PqrsPage , logout : false },
-          { title: 'Logout',icon:'md-log-out', component: UserloginPage , logout : true }
+           { title: 'Logout',icon:'md-log-out', component: UserloginPage , logout : true }
     
         ];
+
+        this.pagest = [
+          { title: 'Inicio',icon:'home', component: MenuprincipalPage, logout : false },
+          { title: 'Iniciar Sesion',icon:'md-person', component: UserloginPage , logout : false },
+            { title: 'Instalaciones',icon:'logo-codepen', component: InstalacionesPage , logout : false },
+            { title: 'Eventos',icon:'ios-color-filter', component: EventosPage , logout : false },
+            { title: 'Deportes',icon:'md-baseball', component: DeportesPage , logout : false },
+            { title: 'Restaurant',icon:'md-restaurant', component: GastronomiaPage , logout : false }
+        ];
+   
     
     
     
@@ -97,18 +110,18 @@ export class MyApp {
               this.imagen = "assets/images/avatar.png";
         }
         else{
-          
+          this.logeado = true;
           this.user = (localStorage["User"]);
             AppSettings.datos =JSON.parse(localStorage["Datos"]);
              
               this.nombre = AppSettings.datos.nombre;
               this.apellido = AppSettings.datos.apellido;
-              this.puntos = AppSettings.datos.puntos;      
+              
               this.imagen = AppSettings.datos.avatar;
           
               console.log(this.imagen);
                console.log(AppSettings.datos);
-          console.log('constans'+this.nombre+ 'apellido'+this.apellido+'puntos'+this.puntos);
+          console.log('constans'+this.nombre+ 'apellido'+this.apellido);
         }
     
     
@@ -152,7 +165,7 @@ export class MyApp {
         console.log('despues de iniciar '+AppSettings.datos);
           this.nombre = AppSettings.datos.nombre;
           this.apellido = AppSettings.datos.apellido;
-          this.puntos = AppSettings.datos.puntos;
+          
           this.imagen = AppSettings.datos.avatar;
          
  
@@ -165,15 +178,17 @@ export class MyApp {
     this.nav.setRoot(HomePage);
   }
   else{
+    this.logeado = true;
+    console.log('AQUI SE SI ESTA LOGEADO');
     this.user = JSON.parse(localStorage["User"]);
     AppSettings.datos = JSON.stringify(localStorage["Datos"]);
   console.log('despues de iniciar '+AppSettings.datos);
     this.nombre = AppSettings.datos.nombre;
     this.apellido = AppSettings.datos.apellido;
-    this.puntos = AppSettings.datos.puntos;
+    
     this.imagen = AppSettings.datos.avatar;
      
-    console.log('hola'+this.imagen);
+    console.log('holaa'+this.imagen);
     this.nav.setRoot(MenuprincipalPage);
   }
   
@@ -208,7 +223,7 @@ If the logout attribute is true .. we delete the user data from the phone  */
         console.log('dsiempre '+AppSettings.datos);
          this.nombre = AppSettings.datos.nombre;
          this.apellido = AppSettings.datos.apellido;
-         this.puntos = AppSettings.datos.puntos;
+         
          this.imagen = AppSettings.datos.avatar;
          
        

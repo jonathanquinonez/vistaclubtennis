@@ -62,6 +62,9 @@ import { RestPersonasautorizadasProvider } from '../providers/rest-personasautor
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { Camera } from '@ionic-native/camera';
+
+
 ///
 //import  { PipeModule }    from './tools/PipeModule';
 
@@ -161,7 +164,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     RestNoticiasProvider,
     RestPqrsProvider,
     RestPersonasautorizadasProvider,
-    InAppBrowser
+    InAppBrowser,
+    Camera
   ]
 })
 export class AppModule {}

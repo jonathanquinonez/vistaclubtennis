@@ -54,6 +54,21 @@ login(credentials){
 
 
 
+  actualizar(data, foto) {
+    return new Promise((resolve, reject) => {
+      var cadena = localStorage.getItem('User');
+      var correo = localStorage.getItem("correo_user").replace(/['"]+/g, '');
+   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+       this.http.post(AppSettings.Api + 'act_usuarios',{nombre:data.nombre,apellido:data.apellido,correo_electronico:data.correo_electronico,direccion:data.direccion,telefono:data.telefono,identificacion:data.identificacion,avatar:foto,_method:data._method}, { headers: headeres })
+         .subscribe(data => {
+           resolve(data),
+           console.log(data);
+         }, (err) => {
+           
+           console.log("Error occured"+err);
+         });
+   });
+  }
 
 
 
