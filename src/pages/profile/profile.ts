@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController, AlertController,ToastController, ActionSheetController  } from 'ionic-angular';
-
+import { UserloginPage } from '../userlogin/userlogin';
 import { AppSettings } from "../../app/app.constants";
 import { UsersProvider } from '../../providers/users/users';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -97,13 +97,17 @@ getPicture(){
      loader.dismissAll();
    let alert = this.alertController.create({
       title:'Club Vival ', 
-      subTitle: 'Información actualizada correctamente',
+      subTitle: 'Falló al actualizadar la información',
       buttons:['OK']
     
     });
      
     alert.present();
-    
+   // if(localStorage.clearAll()){
+     // this.navCtrl.push(UserloginPage);
+      this.navCtrl.setRoot(UserloginPage);
+   // }
+   
     //console.log(err.message);
     
   });
