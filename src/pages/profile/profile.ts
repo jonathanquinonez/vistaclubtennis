@@ -4,6 +4,7 @@ import { UserloginPage } from '../userlogin/userlogin';
 import { AppSettings } from "../../app/app.constants";
 import { UsersProvider } from '../../providers/users/users';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { User } from '../../classes/User';
 //import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 
 /**
@@ -77,7 +78,7 @@ getPicture(){
   });
 
   loader.present();
-  this.authService.actualizar(this.usuario, this.foto).then((result) => {
+  this.authService.actualizar(this.usuario, this.foto).then((result:User) => {
    
      
     this.test =  JSON.stringify(result['usuario']);
@@ -89,10 +90,12 @@ getPicture(){
     });
     alert.present();
     loader.dismissAll();
+
+    console.log(this.test);
     //this.navCtrl.push(this.navCtrl.getActive().component);
     // localStorage.setItem('token', this.data.access_token);
   //this.navCtrl.push(ProyectosPage);
-  this.navCtrl.pop();
+  //this.navCtrl.pop();
   }, (err) => {
      loader.dismissAll();
    let alert = this.alertController.create({
@@ -105,10 +108,10 @@ getPicture(){
     alert.present();
    // if(localStorage.clearAll()){
      // this.navCtrl.push(UserloginPage);
-      this.navCtrl.setRoot(UserloginPage);
+      //this.navCtrl.setRoot(UserloginPage);
    // }
    
-    //console.log(err.message);
+    console.log(err.message);
     
   });
   

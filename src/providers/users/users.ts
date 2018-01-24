@@ -3,8 +3,8 @@ import { UserloginPage } from '../../pages/userlogin/userlogin';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {AppSettings} from '../../app/app.constants';
-
-
+import {Observable} from 'rxjs/Observable';
+import {User} from '../../classes/User'
 
 //let apiUrl = 'http://test.macondolabcucuta.com/ViValAPI/public/api/';
 /*
@@ -15,10 +15,11 @@ import {AppSettings} from '../../app/app.constants';
 */
 @Injectable()
 export class UsersProvider {
+  
   public navCtrl: NavController
+  currentUser: User;
+
 login(credentials){
-
-
   return new Promise((resolve, reject)=>{
     let headeres = new HttpHeaders();
     headeres = headeres.set('Content-Type', 'application/json; charset=utf-8');
@@ -69,7 +70,16 @@ login(credentials){
          });
    });
   }
-
-
+  public getUserInfo() : User {
+    return this.currentUser;
+}
+  public logout() {
+    return Observable.create(observer => {
+    this.currentUser = null;
+    console.log('HERE')
+    observer.next(true);
+    observer.complete();
+    });
+}
 
 }

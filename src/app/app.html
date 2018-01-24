@@ -20,9 +20,21 @@
     <!--Ciclo de dinamico de paginas  -->
     <ion-content class="menucolor">
       <ion-list no-lines>
-        <button ion-item *ngFor="let p of pages" (click)="openPage(p)" >
-          <ion-icon name="{{p.icon}}"></ion-icon>  {{p.title}}
+        <div *ngIf="logeado">
+            <button ion-item *ngFor="let p of pages" (click)="openPage(p)" >
+                <ion-icon name="{{p.icon}}"></ion-icon>  {{p.title}}
+          
+    
         </button>
+        </div>
+        <div *ngIf="!logeado">
+            <button ion-item *ngFor="let p of pagest" (click)="openPage(p)" >
+                <ion-icon name="{{p.icon}}"></ion-icon>  {{p.title}}
+          
+    
+        </button>
+        </div>
+    
       </ion-list>
     </ion-content>
     

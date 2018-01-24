@@ -29,7 +29,7 @@
     "@ionic/cloud": "^0.15.1",
     "@ionic/storage": "2.1.3",
     "cordova-android": "^7.0.0",
-    "cordova-ios": "4.5.4",
+    "cordova-ios": "^4.5.4",
     "cordova-plugin-camera": "^4.0.1",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-inappbrowser": "^1.7.2",
