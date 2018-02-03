@@ -38,7 +38,7 @@ export class RestTeetimeProvider {
 }
 
 
-/////// servicios de la pagina jugadores
+/////// servicios de la pagina jugadores - comsulta turnos por fecha
 public getTunosxdisciplina(fecha) {
   return new Promise((resolve, reject) => {
      var cadena = localStorage.getItem('User');
@@ -142,4 +142,21 @@ public getTurnoestado(idturno) {
         });
   });
 }
+
+// actualizar estado de turno seleccionado - estado apsa a 1 - recibe un id de turno
+public ValidaUsuario(handicap) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'verificarjugador/'+handicap, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured"+err);
+        });
+  });
+}
+
 }

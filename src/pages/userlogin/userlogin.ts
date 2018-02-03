@@ -66,28 +66,50 @@ Login(event){
         
         loader.dismissAll();
        // console.log(data['token']);
-       localStorage["Datos"] = JSON.stringify(data['usuario']);
-       localStorage["correo_user"] = JSON.stringify(this.credentials.correo_electronico);
-       //AppSettings.datos = localStorage["Datos"];
-        localStorage["User"] = JSON.stringify(data['token']);
-        if(data.finished_registration){
-          this.navCtrl.setRoot(MenuprincipalPage);
-        }
-        else{
-          this.navCtrl.setRoot(MenuprincipalPage);
-        }
        
+
+          //this.navCtrl.setRoot(MenuprincipalPage);
         //this.navCtrl.(TeetimePage,{
          // datatoke:data,
        // });
+      console.log(JSON.stringify(data)+"aqui");
       console.log(data);
+      console.log("medio");
+      console.log(localStorage["User"]);
+      console.log(localStorage["correo_user"]);
+      console.log(localStorage["Datos"]);
+
+      if(JSON.stringify(data) == '{"error":"invalid_credentials"}'){
+        let alert = this.alertController.create({
+          title:'Tennis Golf  Club!', 
+          subTitle:"Contraseña o Usuario Incorrecto, Porfavor intenta de nuevo",
+          buttons:['OK']
+        });
+        alert.present();
+   }else{
+          
+    localStorage["Datos"] = JSON.stringify(data['usuario']);
+    localStorage["correo_user"] = JSON.stringify(this.credentials.correo_electronico);
+    //AppSettings.datos = localStorage["Datos"];
+     localStorage["User"] = JSON.stringify(data['token']);
+     this.navCtrl.setRoot(MenuprincipalPage);
+     console.log(JSON.stringify(data)+"aqui");
+     console.log(data);
+     console.log("medio");
+     console.log(localStorage["User"]);
+     console.log(localStorage["correo_user"]);
+     console.log(localStorage["Datos"]);
+
+   }
+
+
       }, error =>{
     
-  
+        loader.dismissAll();
          //console.log('hola'+error.message.correo_electronico);
          if (error){
-                this.navCtrl.setRoot(UserloginPage);
-                  if(error.message == null || error.message == undefined){
+          console.log(error.message);
+          if(error.message == null || error.message == "invalid_credentials"){
                         let alert = this.alertController.create({
                           title:'Tennis Golf  Club!', 
                           subTitle:"Contraseña Incorrecta, Porfavor intenta de nuevo",

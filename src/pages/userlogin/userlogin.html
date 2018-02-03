@@ -23,10 +23,11 @@
               
                     <ion-list no-lines padding-top >
                   
-                      <ion-item class="iblack center " style="width:90%;" >
+                      <ion-item class="iblack center" style="width:90%;" >
                         <ion-label > <img src="assets/images/user.png" style="width: 50%; "></ion-label>
                         <ion-input  formControlName="Email" type="text" placeholder="Usuario"   [(ngModel)]="credentials.correo_electronico" required></ion-input>
                       </ion-item>
+                      <div style="height:5px;"></div>
                       <ion-item class="iblack center"  style="width:90%;">
                         <ion-label  > <img src="assets/images/lock.png" style="width: 60%; "></ion-label>
                         <ion-input formControlName="Password" type="password" placeholder="Contraseña" [(ngModel)]="credentials.password" required></ion-input>

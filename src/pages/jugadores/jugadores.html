@@ -32,30 +32,48 @@
    <ion-grid>
       
      
-      <ion-row>
-          <ion-col col-12>
               <form [formGroup]="LoginForm1">
               <ion-list>   
-                  
+                <ion-row>
+                  <ion-col col-10>
                    <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                     <ion-input class="nombreapellido"  formControlName="jugador11"  [(ngModel)]="grupo.jugador1" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
-                   </ion-item>
+                     <ion-input class="nombreapellido"  formControlName="jugador11" (input)="consultahandicap(grupo.jugador1,1)"  [(ngModel)]="grupo.jugador1" type="text" placeholder="Handicap Jugador 1 (*)" required></ion-input>
+                    </ion-item>
+                    </ion-col>
+                    <ion-col col-2>
+                      <ion-checkbox  color="sucess" class="center"  checked="{{boleanjugador1}}" ></ion-checkbox>
+                </ion-col>
+              </ion-row>
+
                   <br>
+                  <ion-row>
+                    <ion-col col-10>
                     <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                      <ion-input class="nombreapellido"  formControlName="jugador22"  [(ngModel)]="grupo.jugador2" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador22"  (input)="consultahandicap(grupo.jugador2,2)" [(ngModel)]="grupo.jugador2" type="text" placeholder="Handicap Jugador 2 (*)" required></ion-input>
                     </ion-item>
+
+                  </ion-col>
+                  <ion-col col-2>
+                    <ion-checkbox color="sucess" class="center"  checked="{{boleanjugador2}}"  ></ion-checkbox>
+                  </ion-col>
+                </ion-row>
                     <br>
+                    <ion-row>
+                      <ion-col col-10>
                     <ion-item>
                        <ion-icon  name="md-contact" item-start></ion-icon>
-                      <ion-input class="nombreapellido"  formControlName="jugador33" [(ngModel)]="grupo.jugador3" type="text" placeholder="Nombre y Apellidos (*)" required></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador33" (input)="consultahandicap(grupo.jugador3,3)" [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap Jugador 3 (*)" required></ion-input>
                     </ion-item>
-                  
+                  </ion-col>
+                  <ion-col col-2>
+                    <ion-checkbox color="sucess" class="center"  checked="{{boleanjugador3}}" ></ion-checkbox>
+                  </ion-col>
+                </ion-row>
                   </ion-list>
                 </form>
-          </ion-col>
-        </ion-row>
+         
       <ion-row>
         <ion-col col-12> 
             

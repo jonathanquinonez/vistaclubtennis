@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AutorizaraccesoPage } from '../autorizaracceso/autorizaracceso';
+
 import { RestMisinvitacionesProvider } from '../../providers/rest-misinvitaciones/rest-misinvitaciones';
 
 /**
@@ -91,8 +91,7 @@ export class MisinvitacionesPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MisinvitacionesPage');
   }
-  autorizaracceso(){
-    this.navCtrl.push(AutorizaraccesoPage);}
+
 
 
     deletedbloque(idbloque) {

@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { Platform, MenuController, Nav, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule , HttpClient , HttpHeaders} from '@angular/common/http';
 
 import { HomePage } from '../pages/home/home';
-import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
 import { TeetimePage } from '../pages/teetime/teetime';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
@@ -29,7 +28,7 @@ import { PagoHandicapPage } from '../pages/pago-handicap/pago-handicap';
 import { UsersProvider } from '../providers/users/users';
 
 import {AppSettings} from '../app/app.constants';
-
+import { OneSignal } from '@ionic-native/onesignal';
 import { User } from '../classes/User';
 
 @Component({
@@ -58,8 +57,10 @@ export class MyApp {
   pagest: Array<{title: string,icon:string, component: any,logout :boolean}>;
   constructor(public platform: Platform, 
     public statusBar: StatusBar,
+    private oneSignal: OneSignal,
     public splashScreen: SplashScreen, 
     public menu: MenuController,
+    private alertController:AlertController,
     public authService: UsersProvider,
     public http: HttpClient) {
     platform.ready().then(() => {
@@ -67,6 +68,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+     this.handlerNotifications();
       
     });
     this.initializeApp();
@@ -124,9 +126,27 @@ export class MyApp {
           console.log('constans'+this.nombre+ 'apellido'+this.apellido);
         }
     
-    
+       
   }
   
+private handlerNotifications(){
+  if (this.platform.is('cordova')){
+    this.oneSignal.startInit('cdc09357-f92a-4e2c-8bd3-b2d7cbf2a2c2', '667785379086');
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+    this.oneSignal.handleNotificationOpened()
+    .subscribe(jsonData => {
+      let alert = this.alertController.create({
+        title: jsonData.notification.payload.title,
+        subTitle: jsonData.notification.payload.body,
+        buttons: ['OK']
+      });
+      alert.present();
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    });
+    this.oneSignal.endInit();
+  }
+  }
+
   
   initializeApp() {
     this.platform.ready().then(() => {
@@ -160,6 +180,7 @@ export class MyApp {
           //this.nav.setRoot(IntroductionPage);
         }
         else{
+          this.logeado = true;
          this.user = JSON.parse(localStorage["User"]);
           AppSettings.datos =JSON.parse(localStorage["Datos"]);
         console.log('despues de iniciar '+AppSettings.datos);
@@ -206,6 +227,10 @@ If the logout attribute is true .. we delete the user data from the phone  */
         window.localStorage.removeItem('User');
         window.localStorage.removeItem('Datos');
         window.localStorage.removeItem('datos');
+        this.nombre = "Usuario";
+        this.apellido = "Invitado";
+        
+        this.logeado = false;
          this.nav.setRoot(page.component);
         }else{
         this.nav.push(page.component);

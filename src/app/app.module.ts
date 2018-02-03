@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 //pages
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { AutorizaraccesoPage } from '../pages/autorizaracceso/autorizaracceso';
+
 import { TeetimePage } from '../pages/teetime/teetime';
 import { JugadoresPage } from '../pages/jugadores/jugadores';
 import { MisreservacionesPage } from '../pages/misreservaciones/misreservaciones';
@@ -59,7 +59,7 @@ import { RestSpaProvider } from '../providers/rest-spa/rest-spa';
 import { RestNoticiasProvider } from '../providers/rest-noticias/rest-noticias';
 import { RestPqrsProvider } from '../providers/rest-pqrs/rest-pqrs';
 import { RestPersonasautorizadasProvider } from '../providers/rest-personasautorizadas/rest-personasautorizadas';
-
+import { OneSignal } from '@ionic-native/onesignal';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { Camera } from '@ionic-native/camera';
@@ -73,7 +73,7 @@ import { Camera } from '@ionic-native/camera';
   declarations: [
     MyApp,
     HomePage,
-    AutorizaraccesoPage,
+
     TeetimePage,
     JugadoresPage,
     MisreservacionesPage,
@@ -115,7 +115,7 @@ import { Camera } from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    AutorizaraccesoPage,
+   
     TeetimePage,
     JugadoresPage,
     MisreservacionesPage,
@@ -165,7 +165,8 @@ import { Camera } from '@ionic-native/camera';
     RestPqrsProvider,
     RestPersonasautorizadasProvider,
     InAppBrowser,
-    Camera
+    Camera,
+    OneSignal
   ]
 })
 export class AppModule {}
