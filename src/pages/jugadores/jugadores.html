@@ -35,51 +35,65 @@
               <form [formGroup]="LoginForm1">
               <ion-list>   
                 <ion-row>
-                  <ion-col col-6>
+                  <ion-col col-4>
                    <ion-item>
                        
-                     <ion-input type="text" class="nombreapellido"  formControlName="jugador11" (input)="consultahandicap(grupo.jugador1,1)"  [(ngModel)]="grupo.jugador1"  placeholder="Handicap Jugador 1 (*)" required></ion-input>
+                     <ion-input type="text" class="nombreapellido"  formControlName="jugador11"   [(ngModel)]="grupo.jugador1"  placeholder="Handicap o CC." required></ion-input>
                     </ion-item>
                     </ion-col>
-                    <ion-col col-6>
+                    <ion-col col-7>
                       <ion-item>
                         
-                        <ion-input class="nombreapellido"  type="text" Readonly required value="{{jugadoresarray['jugador1']}}"></ion-input>
+                        <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador1']}}" readonly></ion-input>
                        </ion-item>
                        </ion-col>
-                   
+                       <ion-col col-1>
+                  
+                        <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador1,1)"></ion-icon>
+                       
+                     </ion-col>
               </ion-row>
 
                   <br>
                   <ion-row>
-                    <ion-col col-6>
+                    <ion-col col-4>
                     <ion-item>
                       
-                      <ion-input class="nombreapellido"  formControlName="jugador22"  (input)="consultahandicap(grupo.jugador2,2)" [(ngModel)]="grupo.jugador2" type="text" placeholder="Handicap Jugador 2 (*)" required></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador22"   [(ngModel)]="grupo.jugador2" type="text" placeholder="Handicap o CC." required></ion-input>
                     </ion-item>
 
                   </ion-col>
-                  <ion-col col-6>
+                  <ion-col col-7>
                     <ion-item>
                       
-                      <ion-input class="nombreapellido"  type="text" Readonly required value="{{jugadoresarray['jugador2']}}"></ion-input>
+                      <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador2']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
+                     <ion-col col-1>
+                  
+                     <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador2,2)"></ion-icon>
+                    
+                  </ion-col>
                 </ion-row>
                     <br>
                     <ion-row>
-                      <ion-col col-6>
+                      <ion-col col-4>
                     <ion-item>
                        
-                      <ion-input class="nombreapellido"  formControlName="jugador33" (input)="consultahandicap(grupo.jugador3,3)" [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap Jugador 3 (*)" required></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador33"  [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap o CC." required></ion-input>
                     </ion-item>
                   </ion-col>
-                  <ion-col col-6>
+                  <ion-col col-7>
                     <ion-item>
                       
-                      <ion-input class="nombreapellido"  type="text" Readonly required value="{{jugadoresarray['jugador3']}}"></ion-input>
+                      <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador3']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
+                     <ion-col col-1>
+                  
+                      <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador3,3)"></ion-icon>
+                     
+                   </ion-col>
                 </ion-row>
                   </ion-list>
                 </form>

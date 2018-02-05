@@ -15,8 +15,8 @@ page-jugadores {
       }
       ion-item{
     opacity: 0.6;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
  }   
  
  .titulo{
@@ -39,8 +39,9 @@ page-jugadores {
 
  .nombreapellido{
 
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+        font-size: 1.4rem;
  }
  .cc{
 
@@ -107,3 +108,15 @@ $grid-breakpoints: (
     md: 720px,
     lg: 960px
   );
+  .icon-aprobar{
+   
+    right:3px;
+    margin-top:50%;
+    margin-bottom:50%;
+    
+      
+    font-size: 200%;
+    color:#072359;
+    //border-block-end-color: black;
+   // box-shadow: 2px 2px 2px #666; 
+    }
