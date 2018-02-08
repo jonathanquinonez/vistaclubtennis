@@ -5,6 +5,7 @@ import { InstalacionesPage } from '../instalaciones/instalaciones';
 import { DeportesPage } from '../deportes/deportes';
 import { EventosPage } from '../eventos/eventos';
 import { MenuPage } from '../menu/menu';
+import { TeetimePage } from '../teetime/teetime';
 import { NoticiasPage } from '../noticias/noticias';
 
 /**
@@ -21,7 +22,18 @@ import { NoticiasPage } from '../noticias/noticias';
 })
 export class MenuprincipalPage {
 
+logueado1;
+
   constructor(public navCtrl: NavController, public navParams: NavParams){
+     if(localStorage["User"] == null || localStorage["User"] == undefined){
+       console.log(localStorage["User"] + "user");
+      
+              this.logueado1 = false;
+        }
+        else{
+          this.logueado1 = true;
+        }
+        
   }
 
   gastronomia(){
@@ -47,7 +59,9 @@ export class MenuprincipalPage {
   noticias(){
     this.navCtrl.push(NoticiasPage);
   }
-
+teetime(){
+    this.navCtrl.push(TeetimePage);
+  }
   ionViewDidLoad(){
     console.log('ionViewDidLoad MenuprincipalPage');
   }

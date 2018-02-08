@@ -41,17 +41,20 @@
                      <ion-input type="text" class="nombreapellido"  formControlName="jugador11"   [(ngModel)]="grupo.jugador1"  placeholder="Handicap o CC." required></ion-input>
                     </ion-item>
                     </ion-col>
+
+                    <ion-col col-1>
+                  
+                        <ion-icon name="md-search" class="icon-aprobar" (click)="consultahandicap(grupo.jugador1,1)"></ion-icon>
+                       
+                     </ion-col>
+
                     <ion-col col-7>
                       <ion-item>
                         
                         <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador1']}}" readonly></ion-input>
                        </ion-item>
                        </ion-col>
-                       <ion-col col-1>
-                  
-                        <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador1,1)"></ion-icon>
                        
-                     </ion-col>
               </ion-row>
 
                   <br>
@@ -63,17 +66,20 @@
                     </ion-item>
 
                   </ion-col>
+
+                    <ion-col col-1>
+                  
+                     <ion-icon name="md-search" class="icon-aprobar" (click)="consultahandicap(grupo.jugador2,2)"></ion-icon>
+                    
+                  </ion-col>
+
                   <ion-col col-7>
                     <ion-item>
                       
                       <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador2']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
-                     <ion-col col-1>
-                  
-                     <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador2,2)"></ion-icon>
-                    
-                  </ion-col>
+                   
                 </ion-row>
                     <br>
                     <ion-row>
@@ -83,17 +89,20 @@
                       <ion-input class="nombreapellido"  formControlName="jugador33"  [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap o CC." required></ion-input>
                     </ion-item>
                   </ion-col>
+
+                     <ion-col col-1>
+                  
+                      <ion-icon name="md-search" class="icon-aprobar" (click)="consultahandicap(grupo.jugador3,3)"></ion-icon>
+                     
+                   </ion-col>
+
                   <ion-col col-7>
                     <ion-item>
                       
                       <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador3']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
-                     <ion-col col-1>
-                  
-                      <ion-icon name="md-checkbox" class="icon-aprobar" (click)="consultahandicap(grupo.jugador3,3)"></ion-icon>
-                     
-                   </ion-col>
+                    
                 </ion-row>
                   </ion-list>
                 </form>

@@ -15,29 +15,36 @@
   
   </ion-header>  
       <ion-content padding class="contenedor-principal">
-          <div  no-padding *ngFor="let users of users.data">
-              
-          <div class = "col col-25 Backinfo sombras" *ngIf="(users.tipo == 1)" (click)="detallegastronomia(users.id)" > <!--  inicio ngIf-->
+       
+                 <h1 class="titulo">Noticias</h1>
+
+              <div>
+              <div  no-padding *ngFor="let users of users">
+          
+          <div class = "col col-25 Backinfo sombras"   > <!--  inicio ngIf-->
                   <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
                   <!-- slide final -->
-                  <ion-slide>
-                  <img src="{{users.video}}" style="width:100%">
+                  <ion-slide >
+                  <img src="{{users.url}}" style="width:100%">
                   
             </ion-slide>      
                   <!-- slide final-->       
                 </ion-slides>
              <!-- ion slides -->
              <div class = "row responsive-sm titles" no-padding >
-              <div class = "col col-25 " text-center>{{users.nombre}}</div>
+              <div class = "col col-25 " text-center>{{users.titulo}}</div>
           </div>
         </div> <!-- fin ngIf -->
           </div>
-        
-          <ion-infinite-scroll
-            ng-if="moreDataCanBeLoaded()"
-            icon="ion-loading-c"
-            on-infinite="getGastronimia()"
-            distance="1%">
-          </ion-infinite-scroll>
+        </div>
+
+      
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingText="Cargando Noticias...">
+
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll> 
+<div clss="center" style="color:white;" *ngIf="!pagingEnabled"> No hay mas noticias disponibles.</div>
+
         </ion-content>
     

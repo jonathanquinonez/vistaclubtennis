@@ -16,9 +16,9 @@ export class RestNoticiasProvider {
 
   // consulta todos las instalaciones
   apiUrl = 'http://api.tennisgolfclub.com.co/public/noticias';
- public getGastronomia() {
+ public getNoticias(page) {
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/mostrar').subscribe(data => {
+      this.http.get(this.apiUrl+'/mostrar?page='+page).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

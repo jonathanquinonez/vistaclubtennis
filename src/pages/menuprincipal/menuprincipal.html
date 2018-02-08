@@ -18,10 +18,10 @@
 
 <ion-content padding class="contenedor-principal">
 
-          <div style="height:10px;"></div>
+         
           <img  src="assets/images/tennis/logo.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
 
-          <div style="height:40px;"></div>
+          <div style="height:3px;"></div>
         <ion-grid>
             <ion-row>
               <ion-col col-12>
@@ -41,17 +41,18 @@
                                 </div>
                 </ion-col>
               </ion-row>
-          <!--   <ion-row>
+            <ion-row *ngIf="logueado1">
                   <ion-col col-12>
-                      <div class = "row center2" style="width:50%">
+                      <div class = "row center2" style="width:60%">
                           
-                                  <div   class = "col" ><img  src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/teetime.png" width="90" height="85"   ></div>
-                                  <div   class = "col" ><img (click)="noticias()" src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/news.png" width="90" height="85"></div>
+                                  <div   class = "col" ><img (click)="teetime()" src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/teetime.png"></div>
+                                  <div   class = "col" ><img (click)="noticias()" src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/noticias.png"></div>
                           
                                   </div>
                   </ion-col>
-                </ion-row>-->
-                <ion-row class="footer-background" (click)="menu2()">
+                </ion-row>
+
+                <ion-row class="footer-background" (click)="menu2()" *ngIf="logueado1">
                    
                         <ion-footer class="footer-background">
                         <ion-title text-center  style="font-family: MyriadPro; font-size:0.5em ;"><p style="font-family: MyriadPro;color:#fff;; font-size:0.8em ;">Zona de Asociados</p></ion-title>

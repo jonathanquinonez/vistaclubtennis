@@ -1,4 +1,5 @@
 page-menuprincipal {
+  
     ion-slides{ max-height:23%;}
    
     /*.toolbar-background{ background:transparent; border-style:none;}
@@ -13,7 +14,9 @@ page-menuprincipal {
       -moz-background-size: cover;
        -o-background-size: cover; 
         background-size: cover; ;
-       //  background-size:100% auto;
+       // background-size:100% auto;
+margin:auto;
+
       }
 
 
@@ -25,13 +28,14 @@ page-menuprincipal {
   color: #444;
 }
 .center {
-    margin-left: auto;
-    margin-right: auto;
+     margin-left: 50%;
+    margin-right: 50%;
+   
     display: block;
 }
 .center2 {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50%;
+    margin-right: 50%;
    
 }
 .box {
@@ -67,4 +71,8 @@ page-menuprincipal {
   .ultimas-imagenes{
     margin-left: auto;
     margin-right: auto;
+  }
+
+  ion-row{
+    
   }

@@ -1,4 +1,5 @@
 page-jugadores {
+       
     ion-slides{ max-height:23%;}
    
     /*.toolbar-background{ background:transparent; border-style:none;}
@@ -13,11 +14,7 @@ page-jugadores {
         background-size: cover; ;
        //  background-size:100% auto;
       }
-      ion-item{
-    opacity: 0.6;
-    margin-left: 20px;
-    margin-right: 20px;
- }   
+   
  
  .titulo{
      text-align: center;
@@ -25,6 +22,11 @@ page-jugadores {
      margin-bottom: 20px;
  }
 
+ ion-item{
+    opacity: 0.8 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+ }  
 .contenedor-superior{
     margin-left: auto;
     margin-right: auto;
@@ -109,14 +111,16 @@ $grid-breakpoints: (
     lg: 960px
   );
   .icon-aprobar{
-   
+   border:1px;
     right:3px;
     margin-top:50%;
     margin-bottom:50%;
-    
+    display: block;
       
-    font-size: 200%;
+    font-size: 300%;
+    //shadow:1px;
     color:#072359;
+    //color:white;
     //border-block-end-color: black;
    // box-shadow: 2px 2px 2px #666; 
     }
