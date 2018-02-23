@@ -57,12 +57,13 @@ export class MisinvitacionesPage {
 
           this.restpersonasautorizadas1.personasautorizadas(data.identificacion,data.nombre,this.estado,this.idinvitado)
           .then(data1 => {
-            this.testRadioResult = data1;
+           
            
             console.log(data);
           })
-          
+         
           this.getGastronimia();
+
         }else{return false;}
        
         

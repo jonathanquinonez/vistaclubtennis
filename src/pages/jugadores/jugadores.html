@@ -51,7 +51,7 @@
                     <ion-col col-7>
                       <ion-item>
                         
-                        <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador1']}}" readonly></ion-input>
+                        <ion-input class="nombreapellido" formControlName="jugador111" type="text" required value="{{jugadoresarray['jugador1']}}" readonly></ion-input>
                        </ion-item>
                        </ion-col>
                        
@@ -76,7 +76,7 @@
                   <ion-col col-7>
                     <ion-item>
                       
-                      <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador2']}}" readonly></ion-input>
+                      <ion-input class="nombreapellido"  type="text"  formControlName="jugador222" required value="{{jugadoresarray['jugador2']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
                    
@@ -86,7 +86,7 @@
                       <ion-col col-4>
                     <ion-item>
                        
-                      <ion-input class="nombreapellido"  formControlName="jugador33"  [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap o CC." required></ion-input>
+                      <ion-input class="nombreapellido"  formControlName="jugador33"  [(ngModel)]="grupo.jugador3" type="text" placeholder="Handicap o CC."></ion-input>
                     </ion-item>
                   </ion-col>
 
@@ -99,7 +99,7 @@
                   <ion-col col-7>
                     <ion-item>
                       
-                      <ion-input class="nombreapellido"  type="text" required value="{{jugadoresarray['jugador3']}}" readonly></ion-input>
+                      <ion-input class="nombreapellido"  type="text" formControlName="jugador333"  value="{{jugadoresarray['jugador3']}}" readonly></ion-input>
                      </ion-item>
                      </ion-col>
                     
@@ -132,7 +132,7 @@
       </ion-row>
       <ion-row>
           <ion-col col-12>
-              <button class="botont center22" (click)="reservar()">Reservar </button>
+              <button class="botont center22" disabled={{botonreserva}} (click)="reservar()">Reservar </button>
           </ion-col>
         </ion-row>
      

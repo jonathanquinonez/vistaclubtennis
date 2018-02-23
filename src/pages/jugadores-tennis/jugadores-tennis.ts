@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { MisreservacionesPage } from '../misreservaciones/misreservaciones';
 import { RestReservacionesProvider } from '../../providers/rest-reservaciones/rest-reservaciones';
+import { RestTeetimeProvider } from '../../providers/rest-teetime/rest-teetime';
 /**
  * Generated class for the JugadoresTennisPage page.
  *
@@ -17,12 +18,13 @@ import { RestReservacionesProvider } from '../../providers/rest-reservaciones/re
   templateUrl: 'jugadores-tennis.html',
 })
 export class JugadoresTennisPage {
-
-
+botonreserva=true;
+l4:any=[];
 
 public canchas1:any=[];
 public id_canchas:any;
 
+nombrevalir:any;
   LoginForm2:FormGroup;
   turnosx: any = [];
   idhoraseleccionada:any;
@@ -50,24 +52,38 @@ public id_canchas:any;
   currentDatev1 = '2017-09-12';
   currentDatev2 = '2017-12-12';
   myDate:any;
-   constructor(private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestReservacionesProvider) {
+   constructor(public restteetime1: RestTeetimeProvider,private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestReservacionesProvider) 
+   {
    this.LoginForm2 = formBuilder.group({
        jugador11:['',Validators.compose([Validators.required])],
-       jugador22:['',Validators.compose([Validators.required])],
-       jugador33:['',Validators.compose([Validators.required])]
+       jugador22:[],
+       jugador33:[],
+       jugador1:[],
+       jugador2:[],
+       jugador3:[]
        
        
      });
- 
+  
      this.AppSettings.datos =JSON.parse(localStorage["Datos"]);
      
       this.nombre = this.AppSettings.datos.nombre;
       this.apellido = this.AppSettings.datos.apellido;
-      this.canchas();
-
+      
+      this.jugadoresarray["jugador2"]= " "+(this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
+ console.log(this.jugadoresarray["jugador2"]);
+ this.nombrevalir=this.jugadoresarray["jugador2"]
+  console.log("arriba esta el jugador 2");
+  this.canchas();
+  this.mihandicap();
    }
+
+   
    reservar(){
-    if(!this.LoginForm2.valid){
+    if(this.grupo2.jugador1 != this.grupo2.jugador2 && this.grupo2.jugador1 != this.grupo2.jugador3  && this.grupo2.jugador1 != this.grupo2.jugador3)
+    {
+
+              if(!this.LoginForm2.valid){
        
       
     
@@ -86,16 +102,27 @@ public id_canchas:any;
              
               
  
-               console.log(this.grupo2.jugador1);
-               console.log(this.grupo2.jugador2);
-               console.log(this.grupo2.jugador3);
-               console.log(this.grupo2.jugador4);
-             console.log(this.fechaseleccionada);
+               console.log(this.grupo2.jugador1 +"jugador 1");
+               console.log(this.grupo2.jugador2 +"jugador 2");
+               console.log(this.grupo2.jugador3 +"jugador 3");
+               console.log(this.grupo2.jugador4 +"jugador 4");
+             console.log(this.fechaseleccionada +"fecha seleccionada");
              console.log("aquiiii");
                console.log(this.reseva);
               // console.log(this.currentDatev2);
               // 
              } 
+
+    }else{
+             let alert = this.alertController.create({
+                  title:' Tennis Golf  Club', 
+                  subTitle:"No puede repetir el mismo jugador",
+                  buttons:['OK']
+                });
+                alert.present();
+          }
+              
+           
             
          
               
@@ -103,11 +130,32 @@ public id_canchas:any;
    }
  
    jugadorearray(){
-     this.jugadoresarray["jugador1"]= this.grupo2.jugador1;
-     this.jugadoresarray["jugador2"]= this.grupo2.jugador2;
-     this.jugadoresarray["jugador3"]= this.grupo2.jugador3;
-     this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
-     let loader = this.loadingController.create({
+     this.jugadoresarray["jugador1"]= " "+this.grupo2.jugador1;
+     this.jugadoresarray["jugador2"]= " "+(this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
+     this.jugadoresarray["jugador3"]= " "+this.grupo2.jugador3;
+     this.jugadoresarray["jugador4"]= " "+this.grupo2.jugador2;
+
+     if(this.grupo2.jugador2 != '' && this.grupo2.jugador3 == '')
+     {
+           let alert = this.alertController.create({
+                   title:' Tennis Golf  Club', 
+                   subTitle:"Es necesario que completes los campos requeridos",
+                   buttons:['OK']
+                 });
+                 alert.present();
+                 return;
+     }else{
+       if(this.grupo2.jugador2 == '' && this.grupo2.jugador3 != ''){
+
+           let alert = this.alertController.create({
+                   title:' Tennis Golf  Club', 
+                   subTitle:"Es necesario que completes los campos requeridos",
+                   buttons:['OK']
+                 });
+                 alert.present();
+                 return;
+               }else{
+                 let loader = this.loadingController.create({
       content: 'Creando Reservacion...',
       duration:5000
     });
@@ -115,6 +163,10 @@ public id_canchas:any;
     loader.present();
 
      this.reservarteetime();
+               }
+     }
+
+     
    }
   
    fecha1(fechaturno){
@@ -259,6 +311,41 @@ public id_canchas:any;
    ionViewDidLoad() {
      console.log('ionViewDidLoad JugadoresPage');
    }
+
+      mihandicap(){
+         console.log(this.jugadoresarray["jugador2"]);
+ console.log(this.jugadoresarray["jugador2"]+"jugador 2");
+ //this.jugadoresarray["jugador2"]= " "+(this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido);
+ 
+          //// aqui se valida si el que va a realizar  la reservacion existe en otra reservacion - inicio
+          this.restteetime1.Validaexistencia(this.jugadoresarray["jugador2"])
+          .then(data9 => {
+                    this.l4=data9;
+                    console.log(this.l4.data+"entro");
+                    if(this.l4.data==true){
+                          let loader = this.loadingController.create({
+                          content: "Lo sentimos, "+this.jugadoresarray["jugador2"]+" pertenece a una reservación",
+                          duration:3000
+                        });
+
+            loader.present();
+                         
+        this.jugadoresarray["jugador2"]='';
+         this.navCtrl.push(MisreservacionesPage);
+                   }else{
+                    console.log("entro al else- habilitar el boton");
+                    this.botonreserva=null;
+                   }
+                        })
+        /// fin
+
+
+
+        //////// consultando si el usuario tiene handicap - se consulta por el numero de cedula del jugador
+//pendiente
+        //console.log(this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre));
+
+    }
  
  }
  

@@ -19,6 +19,9 @@ import { empty } from 'rxjs/Observer';
   templateUrl: 'jugadores.html',
 })
 export class JugadoresPage {
+
+botonreserva=true;
+
   checkbox1 = Boolean;
  LoginForm1:FormGroup;
  turnosx: any = [];
@@ -56,16 +59,25 @@ boleanjugador3=false;
 handicapjugador1;
 handicapjugador2;;
 handicapjugador3;;
-
+l1:any=[];
+l2:any=[];
+l3:any=[];
+l4:any=[];
 
  currentDatev1 = '11:11:11';
  currentDatev2 = '22:22:22';
  myDate:any;
-  constructor(private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider) {
+  constructor(private loadingController:LoadingController,public formBuilder:FormBuilder,private alertController:AlertController,public navCtrl: NavController, public navParams: NavParams, public restteetime: RestTeetimeProvider)
+   {
   this.LoginForm1 = formBuilder.group({
       jugador11:['',Validators.compose([Validators.required])],
       jugador22:['',Validators.compose([Validators.required])],
-      jugador33:['',Validators.compose([Validators.required])]
+      jugador33:[],
+       jugador111:['',Validators.compose([Validators.required])],
+      jugador222:['',Validators.compose([Validators.required])],
+      jugador333:[],
+      
+     
      
       
     });
@@ -75,14 +87,17 @@ handicapjugador3;;
      this.nombre = this.AppSettings.datos.nombre;
      this.apellido = this.AppSettings.datos.apellido;
      
- 
+  this.mihandicap();
      console.log(this.fechaseleccionada);
       console.log(this.AppSettings.datos);
  console.log('constans'+this.nombre+ 'apellido'+this.apellido);
 
   }
   reservar(){
-   if(!this.LoginForm1.valid){
+
+              if(this.grupo.jugador1 != this.grupo.jugador2 && this.grupo.jugador1 != this.grupo.jugador3  && this.grupo.jugador1 != this.grupo.jugador3)
+              {
+                if(!this.LoginForm1.valid){
       
             let alert = this.alertController.create({
                   title:' Tennis Golf  Club', 
@@ -104,6 +119,19 @@ handicapjugador3;;
              // console.log(this.currentDatev2);
              // 
             } 
+          }else{
+             let alert = this.alertController.create({
+                  title:' Tennis Golf  Club', 
+                  subTitle:"No puede repetir el mismo jugador",
+                  buttons:['OK']
+                });
+                alert.present();
+          }
+              
+
+
+
+   
           
   }
 
@@ -141,12 +169,19 @@ handicapjugador3;;
 
 
  turnos(){
+  let loader = this.loadingController.create({
+      content: 'Cargando Turnos...',
+      duration:3000
+    });
+
+    loader.present();
     this.restteetime.getTunosxdisciplina(this.fechaturno)
     .then(data => {
       this.turnosx = data;
      
       console.log(this.turnosx);
     })
+    
   }
   /// se crean los jugadores
  jugadores4(){
@@ -250,17 +285,71 @@ handicapjugador3;;
     if(this.datahandicapany != null){
       if(x==1) {
         this.boleanjugador1=true;
-      
+      console.log(this.datahandicapany);
        this.jugadoresarray["jugador1"]=this.datahandicapany;
-        
+       //// aqui se valida si el jugador existe en otra reservacion - inicio
+          this.restteetime.Validaexistencia(this.jugadoresarray["jugador1"])
+          .then(data9 => {
+this.l1=data9;
+
+            if(this.l1.data==true){
+              let alert = this.alertController.create({
+                    title:' Tennis Golf  Club', 
+                    subTitle:"El Jugador ya se encuentra en otra Reservación",
+                    buttons:['OK']
+                  });
+                  alert.present();
+                 
+this.jugadoresarray["jugador1"]='';
+
+           }
+         })
+        /// fin
       }
       if(x==2) {
         this.boleanjugador2=true;
         this.jugadoresarray["jugador2"]=this.datahandicapany;
+ //// aqui se valida si el jugador existe en otra reservacion - inicio
+          this.restteetime.Validaexistencia(this.jugadoresarray["jugador2"])
+          .then(data9 => {
+this.l2=data9;
+ console.log(this.l2.data+"entro");
+            if(this.l2.data==true){
+              let alert = this.alertController.create({
+                    title:' Tennis Golf  Club', 
+                    subTitle:"El Jugador ya se encuentra en otra Reservación",
+                    buttons:['OK']
+                  });
+                  alert.present();
+                 
+this.jugadoresarray["jugador2"]='';
+
+           }
+         })
+        /// fin
       }
       if(x==3) {
         this.boleanjugador3=true;
         this.jugadoresarray["jugador3"]=this.datahandicapany;
+
+         //// aqui se valida si el jugador existe en otra reservacion - inicio
+          this.restteetime.Validaexistencia(this.jugadoresarray["jugador3"])
+          .then(data9 => {
+this.l3=data9;
+ console.log(this.l3.data+"entro");
+            if(this.l3.data==true){
+              let alert = this.alertController.create({
+                    title:' Tennis Golf  Club', 
+                    subTitle:"El Jugador ya se encuentra en otra Reservación",
+                    buttons:['OK']
+                  });
+                  alert.present();
+                 
+this.jugadoresarray["jugador3"]='';
+
+           }
+         })
+        /// fin
       }
     }else{
       if(handicap == ''){
@@ -280,6 +369,40 @@ handicapjugador3;;
     
     
   }
+
+
+    mihandicap(){
+ console.log(this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre)+" "+(this.apellido = this.AppSettings.datos.apellido));
+          //// aqui se valida si el que va a realizar  la reservacion existe en otra reservacion - inicio
+          this.restteetime.Validaexistencia(this.jugadoresarray["jugador4"])
+          .then(data9 => {
+                    this.l4=data9;
+                    console.log(this.l4.data+"entro");
+                    if(this.l4.data==true){
+                          let loader = this.loadingController.create({
+                          content: "Lo sentimos, "+this.jugadoresarray["jugador4"]+" pertenece a una reservación",
+                          duration:3000
+                        });
+
+            loader.present();
+                         
+        this.jugadoresarray["jugador4"]='';
+         this.navCtrl.push(TeetimePage);
+                   }else{
+                    console.log("entro al else- habilitar el boton");
+                    this.botonreserva=null;
+                   }
+                        })
+        /// fin
+
+
+
+        //////// consultando si el usuario tiene handicap - se consulta por el numero de cedula del jugador
+//pendiente
+        //console.log(this.jugadoresarray["jugador4"]= (this.nombre = this.AppSettings.datos.nombre));
+
+    }
+
 
 
 

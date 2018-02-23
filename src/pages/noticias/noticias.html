@@ -17,12 +17,11 @@
       <ion-content padding class="contenedor-principal">
        
                  <h1 class="titulo">Noticias</h1>
-
               <div>
               <div  no-padding *ngFor="let users of users">
           
           <div class = "col col-25 Backinfo sombras"   > <!--  inicio ngIf-->
-                  <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%">
+                  <ion-slides autoplay="2000" loop="true" speed="900"  style="width:100%" (click)="detallesalon1(users.id)">
                   <!-- slide final -->
                   <ion-slide >
                   <img src="{{users.url}}" style="width:100%">
@@ -32,7 +31,7 @@
                 </ion-slides>
              <!-- ion slides -->
              <div class = "row responsive-sm titles" no-padding >
-              <div class = "col col-25 " text-center>{{users.titulo}}</div>
+              <div class = "col col-25 " text-center>{{users.titulo}}{{users.id}}</div>
           </div>
         </div> <!-- fin ngIf -->
           </div>

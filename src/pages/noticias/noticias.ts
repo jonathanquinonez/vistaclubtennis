@@ -84,6 +84,12 @@ current_page= 0;
     });
 }
 
+detallesalon1(id){
+  console.log("entro a detallesalon");
+  this.navCtrl.push(DetallenoticiaPage, {
+    idsalon: id,
+  })
+}
 
 
 

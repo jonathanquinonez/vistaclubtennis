@@ -43,7 +43,7 @@ public getTunosxdisciplina(fecha) {
   return new Promise((resolve, reject) => {
      var cadena = localStorage.getItem('User');
   const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
-      this.http.get(AppSettings.Api + 'turnosdisponibles/5/'+fecha, { headers: headeres })
+      this.http.get(AppSettings.Api + 'turnosdisponibles2/5/'+fecha, { headers: headeres })
         .subscribe(data => {
           resolve(data),
           console.log(data);
@@ -155,6 +155,21 @@ public ValidaUsuario(handicap) {
         }, (err) => {
           
           console.log("Error occured"+err);
+        });
+  });
+}
+
+public Validaexistencia(nombre) {
+  return new Promise((resolve, reject) => {
+     var cadena = localStorage.getItem('User');
+  const headeres = new HttpHeaders({'Authorization':'Bearer '+cadena.replace(/['"]+/g, '')});
+      this.http.get(AppSettings.Api + 'validarjugador/'+nombre, { headers: headeres })
+        .subscribe(data => {
+          resolve(data),
+          console.log(data);
+        }, (err) => {
+          
+          console.log("Error occured121111111111"+err);
         });
   });
 }

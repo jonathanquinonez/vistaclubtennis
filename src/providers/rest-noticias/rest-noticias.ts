@@ -14,7 +14,7 @@ export class RestNoticiasProvider {
     console.log('Hello RestNoticiasProvider Provider');
   }
 
-  // consulta todos las instalaciones
+  // consulta todos las noticias por pagina
   apiUrl = 'http://api.tennisgolfclub.com.co/public/noticias';
  public getNoticias(page) {
     return new Promise(resolve => {
@@ -26,13 +26,26 @@ export class RestNoticiasProvider {
     });
   }
 
-// consulta todas las  imagenes del restaurante seleccionado
-  apiUrlDetalle = 'http://api.tennisgolfclub.com.co/public/instalaciones/imagenes/';
-  public getImggastronomia(iddetallegastro) {
+ // consulta todos las noticias por pagina
+ apiUrl2 = 'http://api.tennisgolfclub.com.co/public/noticias';
+ public getdetalleNoticias(id) {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl2+'/mostrar/'+id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
+
+// consulta todas las  imagenes de las noticias seleccionada
+  apiUrlDetalle = 'http://api.tennisgolfclub.com.co/public/noticias/imagenes/';
+  public getImgnoticias(id) {
      return new Promise(resolve => {
-       this.http.get(this.apiUrlDetalle+iddetallegastro).subscribe(data => {
-         resolve(data);
-         console.log(this.apiUrlDetalle+iddetallegastro);
+       this.http.get(this.apiUrlDetalle+id).subscribe(data1 => {
+         resolve(data1);
+         console.log(this.apiUrlDetalle+id);
        }, err => {
          console.log(err);
        });
