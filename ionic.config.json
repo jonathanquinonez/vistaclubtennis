@@ -1,6 +1,6 @@
 {
   "name": "apptennis",
-  "app_id": "ebd35ea9",
+  "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
