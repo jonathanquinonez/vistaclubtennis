@@ -90,5 +90,5 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="the app need the photolibrary" />
     </plugin>
     <plugin name="onesignal-cordova-plugin" spec="^2.2.5" />
-    <engine name="android" spec="^7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>
